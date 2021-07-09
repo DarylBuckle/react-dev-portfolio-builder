@@ -1,10 +1,25 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import PortfolioPage from './PortfolioPage'
 
-interface Props {
-  text: string
-}
+import { Profile } from './Classes/profile'
+import { Project } from './Classes/project'
+import { Qualification } from './Classes/qualification'
+import { Role } from './Classes/role'
+import { Skill } from './Classes/skill'
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+import { NavComponent } from './Components/Nav'
+import { HeaderSectionComponent, SectionComponent, FooterComponent } from './Components/Section'
+
+import './style.css'
+
+export {
+  PortfolioPage,
+  Profile,
+  Project,
+  Qualification,
+  Role,
+  Skill,
+  NavComponent,
+  HeaderSectionComponent,
+  SectionComponent,
+  FooterComponent
 }
