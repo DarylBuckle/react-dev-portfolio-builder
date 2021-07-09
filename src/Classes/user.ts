@@ -1,15 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { Project } from './project'
 import { Role } from './role'
 import { Qualification } from './qualification'
 import { Skill } from './skill'
 
-export interface Profile {
+export interface User {
+  id: string // Users id
+  name: string // Users name
+  email?: string // Your contact email address.
   firstname: string // Your first name.
   lastname: string // Your surname.
-  title: string // Your current job title.
-  title2?: string // Secondary title
+  headline: string // Your current job title.
+  title?: string // Your current job title 2.
   imageUrl: string // profile pic url.
-  coverUrl: string // cover photo url.
   location?: string // Your current location.
   projects?: Project[] // A list of your own projects outside of employment.
   roles?: Role[] // A list of companies that you have been employed at.
@@ -21,7 +24,5 @@ export interface Profile {
   instagram?: string // Your Instagram user name. If set this will show in the footer.
   github?: string // Your GitHub profile user name. If set this will show in the footer.
   stackoverflow?: string // Your Stack Overflow profile user id. If set this will show in the footer.
-  email?: string // Your contact email address. This will show in the footer if set.
   mailto?: string // Email Address where the contact button will send to.
-  about?: string // More information about you. This will show in the About section. Accepts html.
 }

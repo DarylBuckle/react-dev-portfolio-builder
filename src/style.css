@@ -1,6 +1,12 @@
+.react-dev-portfolio {
+  margin: 0px;
+  color: #444;
+  scroll-behavior: smooth;
+}
 
 .react-dev-portfolio .navbar{
   padding: 20px 20px;
+  transition: top .3s, background-color .5s;
 }
 .react-dev-portfolio .navbar.small{
   padding: 15px 0;
@@ -13,10 +19,35 @@
   font-weight: normal;
 }
 @media (min-width: 992px){
+  .react-dev-portfolio .navbar{
+    top: 0px;
+  }
+  .react-dev-portfolio .navbar.navhide{
+    top: -120px;
+  }
   .react-dev-portfolio .navbar.nobackground{
     background-color: transparent !important;
     background-image: none;
   }
+  .react-dev-portfolio .nav-seperator {
+    margin-top: 5px;
+    height: 30px;
+    width: 1px;
+    margin-right: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+.react-dev-portfolio .to-top {
+  position: fixed;
+  z-index: 1;
+  padding: 5px 8px;
+  right: 25px;
+  bottom: 25px;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+.react-dev-portfolio .to-top.shown{
+  opacity: 1;
 }
 
 .react-dev-portfolio .page-header {
@@ -100,4 +131,51 @@
     margin: 0 30px 0 20px;
     width: 20px;
   }
+}
+
+
+
+.react-dev-portfolio p, .react-dev-portfolio .details{
+  color: #777;
+}
+
+.react-dev-portfolio .section-header{
+  margin-bottom: 70px;
+}
+.react-dev-portfolio .section-header-desc{
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.react-dev-portfolio .hvr-grow,
+.react-dev-portfolio .hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.react-dev-portfolio .hvr-grow:hover, .react-dev-portfolio .hvr-grow:focus, .react-dev-portfolio .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.react-dev-portfolio .hvr-grow-shadow:hover, .react-dev-portfolio .hvr-grow-shadow:focus, .react-dev-portfolio .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.react-dev-portfolio .LI-badge-container{
+  text-align: left !important;
+}
+
+.react-dev-portfolio .oneline{
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
 }

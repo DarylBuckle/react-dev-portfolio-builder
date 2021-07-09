@@ -7,6 +7,7 @@ interface Props {
   id?: string
   children?: any
   backgroundImageUrl?: string
+  name?: string
 }
 
 export const HeaderSectionComponent = (props: Props) => {
@@ -75,7 +76,7 @@ export const SectionComponent = (props: Props) => {
       }}
       id={props.id + '-Container'}
     >
-      <div className='mark' id={props.id} />
+      {props.id && <div className='mark' id={props.id} />}
       <div>
         <div className='container'>{props.children}</div>
       </div>
@@ -108,6 +109,7 @@ export const FooterComponent = (props: Props) => {
   if (!props.textColour) {
     footerClasses += ' text-white'
   }
+  const year = new Date().getFullYear();
 
   return (
     <footer
@@ -149,8 +151,8 @@ export const FooterComponent = (props: Props) => {
             </div>
           </div>
         </div>
-        <p className='text-footer-text small mt-5 mb-0'>
-          Copyright © Name Year
+        <p className='text-white small mt-5 mb-0'>
+          {`Copyright © ${props.name} ${year}`}
         </p>
       </div>
     </footer>

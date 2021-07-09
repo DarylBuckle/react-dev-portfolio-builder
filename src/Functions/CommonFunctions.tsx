@@ -1,3 +1,5 @@
+import React from 'react'
+
 export function idealTextColor(bgColor?: string) {
   var nThreshold = 105
   let components = null
@@ -20,4 +22,22 @@ export function idealTextColor(bgColor?: string) {
   var bgDelta =
     components.R * 0.299 + components.G * 0.587 + components.B * 0.114
   return 255 - bgDelta < nThreshold ? '#000' : '#fff'
+}
+
+export function displayMemo(display: string | undefined) {
+  let displayMod: string | undefined = display
+  let displayArray: any[] | undefined
+  if (displayMod != null) {
+    displayMod = displayMod.replace(
+      /(?:\r\n|\r|\n)/g,
+      'slinebreak<br/>slinebreak'
+    )
+    displayArray = displayMod.split('slinebreak')
+    for (var i = 0; i < displayArray.length; i++) {
+      if (displayArray[i] === '<br/>') {
+        displayArray[i] = <br />
+      }
+    }
+  }
+  return displayArray
 }
