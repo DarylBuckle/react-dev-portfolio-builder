@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
+// eslint-disable-next-line no-unused-vars
 import { Section } from '../Classes/page'
 import { idealTextColor } from '../Functions/CommonFunctions'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 interface Props {
   backgroundColor?: string
@@ -18,6 +21,7 @@ export const NavComponent = (props: Props) => {
   const [showScrollToTop, setShowScrollToTop] = useState(
     getScrollOffset() > 300
   )
+  const [activeLink, setActiveLink] = useState(getActiveLink())
 
   function getScrollOffset() {
     const y =
@@ -31,27 +35,64 @@ export const NavComponent = (props: Props) => {
   function scrollToTop() {
     document.body.scrollTop = 0 // For Safari
     document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+    setActiveLink('')
+  }
+
+  function getActiveLink() {
+    let elementInView = ''
+    if (props.links) {
+      for (const navLink of props.links) {
+        if (navLink.identifier) {
+          if (
+            isElementInViewport(
+              document.getElementById(navLink.identifier + '-Container')
+            )
+          ) {
+            elementInView = navLink.identifier
+          }
+        }
+      }
+    }
+    return elementInView
+  }
+
+  function isElementInViewport(el: HTMLElement | null) {
+    if (!el) {
+      return false
+    }
+
+    const rect = el.getBoundingClientRect()
+    return (
+      rect.top + window.outerHeight * 0.35 <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom + window.outerHeight * 0.35 >=
+        (window.innerHeight || document.documentElement.clientHeight)
+    )
   }
 
   useEffect(() => {
     const onScroll = () => {
       const scrollOffset = getScrollOffset()
-      if (scrollOffset < 1) {
-        setHideBackground(true)
-      } else {
-        setHideBackground(false)
+
+      const newHideBackground = scrollOffset < 1
+      if (newHideBackground !== hideBackground) {
+        setHideBackground(newHideBackground)
       }
 
-      if (scrollOffset > 300) {
-        setShowScrollToTop(true)
-      } else {
-        setShowScrollToTop(false)
+      const newShowScrollToTop = scrollOffset > 300
+      if (newShowScrollToTop !== showScrollToTop) {
+        setShowScrollToTop(newShowScrollToTop)
+      }
+
+      const newActiveLink = getActiveLink()
+      if (newActiveLink !== activeLink) {
+        setActiveLink(newActiveLink)
       }
     }
     window.addEventListener('scroll', onScroll)
 
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [activeLink, showScrollToTop, hideBackground])
 
   let headerClasses = 'navbar navbar-expand-lg navbar-dark fixed-top'
   let scrollToTopClass = 'btn btn-lg to-top'
@@ -115,7 +156,14 @@ export const NavComponent = (props: Props) => {
             {props.links &&
               props.links.map((s, i) => (
                 <li key={'portfolio-link-' + i} className='nav-item mr-lg-3'>
-                  <a className='nav-link (not)active' href={'#' + s.identifier}>
+                  <a
+                    className={
+                      activeLink && s.identifier === activeLink
+                        ? 'nav-link active'
+                        : 'nav-link'
+                    }
+                    href={'#' + s.identifier}
+                  >
                     {s.title}
                   </a>
                 </li>
@@ -147,7 +195,7 @@ export const NavComponent = (props: Props) => {
           color: idealTextColor(props.textColour)
         }}
       >
-        /\
+        <FontAwesomeIcon icon={faChevronUp} />
       </button>
     </nav>
   )

@@ -12,6 +12,7 @@ import {
 import { Page } from './Classes/page'
 
 import 'react-profile-avatar/dist/index.css'
+import { ProjectTileComponent } from './Components/ProjectTile'
 
 interface Props {
   page: Page
@@ -31,8 +32,32 @@ export default ({ page }: Props) => {
       if (i1 < page.sections.length - 1) {
         nextColour = page.sections[i1 + 1].bgColour
       }
+
+      let content
+      switch (s.use) {
+        case 1: // My projects grid
+          content = (
+            <div className='row justify-content-center'>
+              {page.user.projects &&
+                page.user.projects.map((p) => {
+                  return (
+                    <div
+                      key={'project-tile-' + p.name}
+                      className='project-tile col-md-6 col-lg-4 mb-5'
+                      onClick={() => window.alert('Clicked ' + p.name)}
+                    >
+                      <ProjectTileComponent project={p} />
+                    </div>
+                  )
+                })}
+            </div>
+          )
+          break
+      }
+
       sectionContent.push(
         <SectionComponent
+          key={'section-' + i1}
           backgroundColor={s.bgColour}
           textColour={s.textColour}
           nextBackgroundColor={nextColour}
@@ -48,10 +73,9 @@ export default ({ page }: Props) => {
                   </p>
                 </div>
               </div>
-              <div className='row justify-content-center' />
+              <div className='row justify-content-center'>{content}</div>
             </div>
           </div>
-          {/* <SectionContent section={s} user={page.user} /> */}
         </SectionComponent>
       )
       if (s.identifier) {
@@ -62,6 +86,12 @@ export default ({ page }: Props) => {
 
   return (
     <div className='react-dev-portfolio'>
+      <style>
+        {`.react-dev-portfolio .project-tile h5:hover,
+          .react-dev-portfolio .project-tile svg {
+            color: ${page.textColour};
+        }`}
+      </style>
       <NavComponent
         backgroundColor={page.bgColour}
         textColour={page.textColour}

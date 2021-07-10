@@ -1,10 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import { Skill } from './skill'
 
 export interface Project {
   name?: string // The name/title of the project.
   owner: string // The person or company who owns the project
   role?: string // Enter the name of the company used in the 'company' property of the 'role' model if applicable.
-  icon?: object // A font awesome icon to show for this qualification.
   image?: string // The url of an image to show instead of an icon. This can be the url of a public image or the path of a local asset.
   imagestyle?: object // If image is set you can use this to apply custom styles to the image.
   images?: string[] // This will show multiple images in a carousel on the modal screen instead of 'image'.

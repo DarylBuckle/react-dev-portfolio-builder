@@ -35,7 +35,7 @@ export function displayMemo(display: string | undefined) {
     displayArray = displayMod.split('slinebreak')
     for (var i = 0; i < displayArray.length; i++) {
       if (displayArray[i] === '<br/>') {
-        displayArray[i] = <br />
+        displayArray[i] = <br key={i} />
       }
     }
   }

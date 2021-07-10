@@ -13,6 +13,7 @@ import {
   SectionComponent,
   FooterComponent
 } from './Components/Section'
+import { ProjectTileComponent } from './Components/ProjectTile'
 
 import './style.css'
 
@@ -27,5 +28,6 @@ export {
   NavComponent,
   HeaderSectionComponent,
   SectionComponent,
-  FooterComponent
+  FooterComponent,
+  ProjectTileComponent
 }
