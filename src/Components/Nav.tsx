@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 // eslint-disable-next-line no-unused-vars
-import { Section } from '../Classes/page'
+import { Link, Section } from '../Classes/page'
 import { idealTextColor } from '../Functions/CommonFunctions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
@@ -14,6 +14,7 @@ interface Props {
   navSize?: number | undefined
   mailto?: string
   links: Section[]
+  externalLinks: Link[]
 }
 
 export const NavComponent = (props: Props) => {
@@ -48,7 +49,11 @@ export const NavComponent = (props: Props) => {
               document.getElementById(navLink.identifier + '-Container')
             )
           ) {
-            elementInView = navLink.identifier
+            if (navLink.linkedIdentifier) {
+              elementInView = navLink.linkedIdentifier
+            } else {
+              elementInView = navLink.identifier
+            }
           }
         }
       }
@@ -154,20 +159,38 @@ export const NavComponent = (props: Props) => {
             data-target='.navbar-collapse.show'
           >
             {props.links &&
-              props.links.map((s, i) => (
-                <li key={'portfolio-link-' + i} className='nav-item mr-lg-3'>
-                  <a
-                    className={
-                      activeLink && s.identifier === activeLink
-                        ? 'nav-link active'
-                        : 'nav-link'
-                    }
-                    href={'#' + s.identifier}
-                  >
-                    {s.title}
-                  </a>
-                </li>
-              ))}
+              props.links.map(
+                (s, i) =>
+                  !s.linkedIdentifier && (
+                    <li
+                      key={'portfolio-link-' + i}
+                      className='nav-item mr-lg-3'
+                    >
+                      <a
+                        className={
+                          activeLink && s.identifier === activeLink
+                            ? 'nav-link active'
+                            : 'nav-link'
+                        }
+                        href={'#' + s.identifier}
+                      >
+                        {s.title}
+                      </a>
+                    </li>
+                  )
+              )}
+            {props.externalLinks && props.externalLinks.length > 0 && (
+              <Fragment>
+                <div className='nav-seperator' />
+                {props.externalLinks.map((s, i) => (
+                  <li key={'portfolio-link-' + i} className='nav-item mr-lg-3'>
+                    <a className='nav-link' href={s.url}>
+                      {s.title}
+                    </a>
+                  </li>
+                ))}
+              </Fragment>
+            )}
             {props.mailto ? (
               <a
                 className={contactClass}

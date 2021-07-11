@@ -14,6 +14,9 @@ import {
   FooterComponent
 } from './Components/Section'
 import { ProjectTileComponent } from './Components/ProjectTile'
+import { RoleTileComponent } from './Components/RoleTile'
+import { QualificationTileComponent } from './Components/QualificationTile'
+import { SkillGroupComponent, SkillBarComponent } from './Components/SkillBar'
 
 import './style.css'
 
@@ -29,5 +32,9 @@ export {
   HeaderSectionComponent,
   SectionComponent,
   FooterComponent,
-  ProjectTileComponent
+  ProjectTileComponent,
+  RoleTileComponent,
+  QualificationTileComponent,
+  SkillGroupComponent,
+  SkillBarComponent
 }

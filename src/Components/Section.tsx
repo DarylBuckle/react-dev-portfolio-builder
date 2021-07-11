@@ -1,5 +1,16 @@
 import React from 'react'
-
+// eslint-disable-next-line no-unused-vars
+import { User } from '../Classes/user'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faFacebookF,
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faStackOverflow,
+  faTwitter
+} from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 interface Props {
   backgroundColor?: string
   textColour?: string
@@ -7,7 +18,7 @@ interface Props {
   id?: string
   children?: any
   backgroundImageUrl?: string
-  name?: string
+  user?: User
 }
 
 export const HeaderSectionComponent = (props: Props) => {
@@ -109,7 +120,8 @@ export const FooterComponent = (props: Props) => {
   if (!props.textColour) {
     footerClasses += ' text-white'
   }
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
+  const { user } = props
 
   return (
     <footer
@@ -124,10 +136,126 @@ export const FooterComponent = (props: Props) => {
     >
       <div className='container'>
         <div className='row'>
-          <div className='col-lg-4 mb-5 mb-lg-0' />
           <div className='col-lg-4 mb-5 mb-lg-0'>
+            {user?.location && (
+              <div className='footer-contact-info mb-4 mt-4'>
+                <a
+                  target='_blank'
+                  href={`https://www.google.com/maps/place/${user.location}`}
+                  rel='noreferrer'
+                >
+                  <FontAwesomeIcon
+                    icon={faMapMarkerAlt}
+                    className='mr-2'
+                    size='lg'
+                  />
+                  <br />
+                  {user.location}
+                </a>
+              </div>
+            )}
+            {user?.mailto && (
+              <div className='footer-contact-info mb-4 mt-4'>
+                <a
+                  target='_blank'
+                  href={`mailto:${user.mailto}`}
+                  rel='noreferrer'
+                >
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className='mr-2'
+                    size='lg'
+                  />
+                  <br />
+                  {user.mailto}
+                </a>
+              </div>
+            )}
+          </div>
+          <div className='col-lg-4 mb-5 mt-3 mb-lg-0'>
             {props.children}
-            <ul className='list-inline mb-3' />
+            {user && (
+              <ul className='list-inline my-3'>
+                {user.facebook && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='Facebook'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.facebook.com/${user.facebook}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faFacebookF} size='1x' />
+                    </a>
+                  </li>
+                )}
+                {user.twitter && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='Twitter'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.twitter.com/${user.twitter}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faTwitter} size='1x' />
+                    </a>
+                  </li>
+                )}
+                {user.linkedin && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='LinkedIn'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.linkedin.com/in/${user.linkedin}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faLinkedin} size='1x' />
+                    </a>
+                  </li>
+                )}
+                {user.instagram && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='Instagram'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.instagram.com/${user.instagram}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faInstagram} size='1x' />
+                    </a>
+                  </li>
+                )}
+                {user.github && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='Github'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.github.com/${user.github}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faGithub} size='1x' />
+                    </a>
+                  </li>
+                )}
+                {user.stackoverflow && (
+                  <li className='list-inline-item mb-3'>
+                    <a
+                      title='Stack Overflow'
+                      className='media-bubble rounded-circle text-footer mr-3'
+                      target='_blank'
+                      href={`https://www.stackoverflow.com/users/${user.stackoverflow}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon icon={faStackOverflow} size='1x' />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            )}
           </div>
           <div className='col-lg-4 mb-5 mb-lg-0'>
             <div className='footer-contact-info mb-3 mt-4'>
@@ -151,9 +279,11 @@ export const FooterComponent = (props: Props) => {
             </div>
           </div>
         </div>
-        <p className='text-white small mt-5 mb-0'>
-          {`Copyright © ${props.name} ${year}`}
-        </p>
+        {user && (
+          <p className='text-white small mt-5 mb-0'>
+            {`Copyright © ${user.firstname + ' ' + user.lastname} ${year}`}
+          </p>
+        )}
       </div>
     </footer>
   )

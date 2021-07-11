@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavComponent } from './Components/Nav'
 import { Avatar } from 'react-profile-avatar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
 import { idealTextColor, displayMemo } from './Functions/CommonFunctions'
 import {
   HeaderSectionComponent,
@@ -13,6 +15,15 @@ import { Page } from './Classes/page'
 
 import 'react-profile-avatar/dist/index.css'
 import { ProjectTileComponent } from './Components/ProjectTile'
+
+import {
+  VerticalTimeline,
+  VerticalTimelineElement
+} from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
+import { RoleTileComponent } from './Components/RoleTile'
+import { QualificationTileComponent } from './Components/QualificationTile'
+import { SkillGroupComponent } from './Components/SkillBar'
 
 interface Props {
   page: Page
@@ -34,7 +45,7 @@ export default ({ page }: Props) => {
       }
 
       let content
-      switch (s.use) {
+      switch (s.systemuse) {
         case 1: // My projects grid
           content = (
             <div className='row justify-content-center'>
@@ -53,6 +64,75 @@ export default ({ page }: Props) => {
             </div>
           )
           break
+        case 2: // Experience
+          content = (
+            <VerticalTimeline layout='1-column'>
+              {page.user.roles &&
+                page.user.roles.map((r, i) => {
+                  return (
+                    <VerticalTimelineElement
+                      key={'timelineElement-' + i}
+                      className='role-tile vertical-timeline-element--work text-left'
+                      iconStyle={
+                        r.current
+                          ? {
+                              background: page.textColour,
+                              color: 'white'
+                            }
+                          : {
+                              background: '#aaa',
+                              color: 'white'
+                            }
+                      }
+                      icon={
+                        <FontAwesomeIcon
+                          style={{ marginLeft: '-10px' }}
+                          icon={faBriefcase}
+                          size='lg'
+                        />
+                      }
+                    >
+                      <RoleTileComponent role={r} />
+                    </VerticalTimelineElement>
+                  )
+                })}
+            </VerticalTimeline>
+          )
+          break
+        case 3: // Qualifications
+          content = (
+            <div className='row justify-content-center'>
+              {page.user.qualifications &&
+                page.user.qualifications.map((q) => {
+                  return (
+                    <div
+                      key={'qualification-tile-' + q.name}
+                      className='col-md-4 col-lg-3 col-sm-6 mb-3'
+                      onClick={() => window.alert('Clicked ' + q.name)}
+                    >
+                      <QualificationTileComponent qualification={q} />
+                    </div>
+                  )
+                })}
+            </div>
+          )
+          break
+        case 4: // Skills
+          content = (
+            <div className='row justify-content-center'>
+              {page.user.skills && (
+                <SkillGroupComponent
+                  skills={page.user.skills}
+                  showProjects
+                  user={page.user}
+                />
+              )}
+            </div>
+          )
+          break
+        default:
+          content = s.content
+          break
       }
 
       sectionContent.push(
@@ -67,13 +147,15 @@ export default ({ page }: Props) => {
             <div className='text-center'>
               <div className='row justify-content-center'>
                 <div className='section-header col-lg-6'>
-                  <h2>{s.title}</h2>
-                  <p className='section-header-desc'>
-                    {displayMemo(s.subTitle)}
-                  </p>
+                  {s.title && <h2>{s.title}</h2>}
+                  {s.subTitle && (
+                    <p className='section-header-desc'>
+                      {displayMemo(s.subTitle)}
+                    </p>
+                  )}
                 </div>
               </div>
-              <div className='row justify-content-center'>{content}</div>
+              {content}
             </div>
           </div>
         </SectionComponent>
@@ -88,17 +170,34 @@ export default ({ page }: Props) => {
     <div className='react-dev-portfolio'>
       <style>
         {`.react-dev-portfolio .project-tile h5:hover,
-          .react-dev-portfolio .project-tile svg {
+          .react-dev-portfolio .role-tile span,
+          .react-dev-portfolio .role-tile .project-more-btn:hover,
+          .react-dev-portfolio .skill .selectable:hover,
+          .react-dev-portfolio .skill-group h6 {
             color: ${page.textColour};
-        }`}
+        }
+        .react-dev-portfolio a {
+          color: ${page.textColour};
+          text-decoration: none;
+          background-color: rgba(0,0,0,0);
+        }
+        .react-dev-portfolio a:hover, .react-dev-portfolio a:visited, .react-dev-portfolio a:focus {
+          color: ${page.textColour};
+        }
+        .react-dev-portfolio .media-bubble {
+          background-color: ${page.textColour};
+          color: ${idealTextColor(page.textColour)} !important;
+        }
+        `}
       </style>
       <NavComponent
         backgroundColor={page.bgColour}
         textColour={page.textColour}
         title={page.user.firstname + ' ' + page.user.lastname}
         logoUrl={page.logoUrl}
-        mailto={page.user.email}
+        mailto={page.user.mailto}
         links={navLinks}
+        externalLinks={page.externalLinks}
       />
       <HeaderSectionComponent
         backgroundColor={page.bgColour}
@@ -134,11 +233,9 @@ export default ({ page }: Props) => {
       {sectionContent}
       <FooterComponent
         backgroundColor={page.bgColour}
-        textColour={page.textColour}
-        name={page.user.firstname + ' ' + page.user.lastname}
-      >
-        Footer
-      </FooterComponent>
+        textColour={idealTextColor(page.bgColour)}
+        user={page.user}
+      />
     </div>
   )
 }

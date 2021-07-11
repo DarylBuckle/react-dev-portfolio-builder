@@ -4,6 +4,9 @@ import { PortfolioPage } from 'react-dev-portfolio'
 import 'react-dev-portfolio/dist/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+
 const App = () => {
   return <PortfolioPage page={{
     user: {
@@ -14,7 +17,9 @@ const App = () => {
       headline: 'Full Stack Developer',
       title: 'CTO at Halo Service Solutions',
       imageUrl: 'https://darylbuckle.dev/assets/images/profile.png',
+      location: 'Suffolk, United Kingdom',
       email: 'daryl.buckle@outlook.com',
+      mailto: 'daryl.buckle@outlook.com',
       projects: [
         {
           name: 'angular-dev-portfolio',
@@ -235,7 +240,6 @@ const App = () => {
           name: 'Authentication Proxy',
           owner: 'Daryl Buckle',
           url: 'https://github.com/DarylBuckle/nodejs-auth-proxy',
-          icon: ['fab' , 'node-js'],
           private: false,
           enddate: new Date(2020, 10, 1),
           skills: [
@@ -292,6 +296,515 @@ const App = () => {
           '<p>It is written in Jekyll and hosted on Github Pages. New posts are published just by creating a new markdown file in the github pages repo.</p>'
         },
       ],
+      roles: [
+        {
+          title: 'Chief Technology Officer',
+          company: 'Halo Service Solutions',
+          location: 'Suffolk, United Kingdom',
+          url: 'https://haloservicesolutions.com',
+          startdate: new Date(2014, 2, 1),
+          current: true,
+          positions: [
+            {
+              title: 'Chief Technology Officer',
+              company: 'Halo Service Solutions',
+              startdate: new Date(2020, 9, 1),
+              current: true
+            },
+            {
+              title: 'Lead Software Engineer/Architect',
+              company: 'Halo Service Solutions',
+              startdate: new Date(2017, 6, 1),
+              enddate: new Date(2020, 9, 1),
+              current: false
+            },
+            {
+              title: 'Software Engineer',
+              company: 'Halo Service Solutions',
+              startdate: new Date(2014, 8, 1),
+              enddate: new Date(2017, 6, 1),
+              current: false
+            },
+            {
+              title: 'Junior Software Engineer',
+              company: 'Halo Service Solutions',
+              startdate: new Date(2014, 2, 1),
+              enddate: new Date(2014, 8, 1),
+              current: false
+            }
+          ],
+          info: '<p>Technical lead, development manager, architect and full stack developer at Halo Service Solutions (formerly known as NetHelpDesk). Architect and creator of API centric web based ITSM, PSA and Service Desk SaaS solutions.</p>' +
+          '<br>Highlights;' +
+            '<ul>' +
+              '<li>Development of commercial software solutions</li>' +
+              '<li>Creator and lead architect of a new web-based API centric solution which replaced the ageing desktop solution</li>' +
+              '<li>User interface and architecture design</li>' +
+              '<li>Researching new technologies and driving technical direction</li>' +
+              '<li>Managing technical department</li>' +
+              '<li>Growing a team and training engineers</li>' +
+              '<li>Consulting with customers regarding their requirements and developing specifications of work, and time and cost estimates, and working to strict deadlines</li>' +
+              '<li>Setting up and improving upon internal development procedures</li>' +
+              '<li>Integrating the Software with third party applications</li>' +
+              '<li>Troubleshooting and application maintenance</li>' +
+            '</ul>',
+          projects: [
+            {
+              name: 'HaloITSM',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://haloitsm.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/haloitsm-thumb.svg',
+              imagestyle: { backgroundSize: '250px', backgroundColor: 'white' },
+              images: [
+                'https://darylbuckle.dev/assets/images/projects/haloitsm-1.png',
+                'https://darylbuckle.dev/assets/images/projects/haloitsm-2.png',
+                'https://darylbuckle.dev/assets/images/projects/haloitsm-3.png'
+              ],
+              private: true,
+              startdate: new Date(2017, 6, 1),
+              current: true,
+              skills: [
+                { name: 'React', group: 'Front End' },
+                { name: 'HTML', group: 'Front End' },
+                { name: 'CSS', group: 'Front End' },
+                { name: 'Javascript', group: 'Front End' },
+                { name: 'Redux', group: 'Front End' },
+                { name: 'Webpack', group: 'Front End' },
+                { name: 'Bootstrap', group: 'Front End' },
+                { name: 'C#', group: 'Back End' },
+                { name: '.NET Core 2', group: 'Back End' },
+                { name: '.NET Core 3', group: 'Back End' },
+                { name: 'Web API', group: 'Back End' },
+                { name: 'REST', group: 'Back End' },
+                { name: 'MVC', group: 'Back End' },
+                { name: 'Redis', group: 'Back End' },
+                { name: 'Microsoft SQL', group: 'Database' },
+                { name: 'Entity Framework', group: 'Database' },
+                { name: 'AWS EC2', group: 'Hosting' },
+                { name: 'IIS', group: 'Hosting' },
+                { name: 'PowerShell', group: 'Hosting' },
+                { name: 'OAuth2', group: 'Back End' },
+                { name: 'JSON', group: 'Front End' },
+                { name: 'Git', group: 'Source Control' },
+                { name: 'Kanban', group: 'Workflow' },
+              ],
+              info: '<p>HaloITSM is an IT Service Management solution consisting of many features such as incident, problem, change & service request management, CMDB, knowledge base, active directory and azure integrations, single sign-on and a self service portal.</p>' +
+              '<p>The product consists of multiple single-page web applications built using ReactJS with C# .Net Core backend applications (Web API and OAuth2 Authentication Server built with MVC), and Microsoft SQL Server database. API is open for integrations. Application authentication was implemented with OAuth2 Authorisation Code flow with PKCE. Hosted by IIS with AWS EC2.</p>' +
+              '<p>I was the creator of the product and wrote all the initial code, and trained a team of developers to learn the languages and codebase. The application was one of three new products built with the same underlying components to replace the NetHelpDesk Desktop solution.</p>'
+            },
+            {
+              name: 'HaloPSA',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://halopsa.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/halopsa-thumb.svg',
+              imagestyle: { backgroundSize: '250px', backgroundColor: 'white' },
+              images: ['https://darylbuckle.dev/assets/images/projects/halopsa-1.png', 'https://darylbuckle.dev/assets/images/projects/halopsa-2.png', 'https://darylbuckle.dev/assets/images/projects/halopsa-3.png'],
+              private: true,
+              startdate: new Date(2017, 6, 1),
+              current: true,
+              skills: [
+                { name: 'React', group: 'Front End' },
+                { name: 'HTML', group: 'Front End' },
+                { name: 'CSS', group: 'Front End' },
+                { name: 'Javascript', group: 'Front End' },
+                { name: 'Redux', group: 'Front End' },
+                { name: 'Webpack', group: 'Front End' },
+                { name: 'Bootstrap', group: 'Front End' },
+                { name: 'C#', group: 'Back End' },
+                { name: '.NET Core 2', group: 'Back End' },
+                { name: '.NET Core 3', group: 'Back End' },
+                { name: 'Web API', group: 'Back End' },
+                { name: 'REST', group: 'Back End' },
+                { name: 'MVC', group: 'Back End' },
+                { name: 'Redis', group: 'Back End' },
+                { name: 'Microsoft SQL', group: 'Database' },
+                { name: 'Entity Framework', group: 'Database' },
+                { name: 'AWS EC2', group: 'Hosting' },
+                { name: 'IIS', group: 'Hosting' },
+                { name: 'PowerShell', group: 'Hosting' },
+                { name: 'OAuth2', group: 'Back End' },
+                { name: 'JSON', group: 'Front End' },
+                { name: 'Git', group: 'Source Control' },
+                { name: 'Kanban', group: 'Workflow' },
+              ],
+              info: '<p>HaloPSA is solution for Managed Service Providers consisting of many features such as ticketing, crm, service level agreements, contract management, asset management, sales, billing and reporting.</p>' +
+              '<p>The product consists of multiple single-page web applications built using ReactJS with C# .Net Core backend applications (Web API and OAuth2 Authentication Server built with MVC), and Microsoft SQL Server database. API is open for integrations. Application authentication was implemented with OAuth2 Authorisation Code flow with PKCE. Hosted by IIS with AWS EC2.</p>' +
+              '<p>I was the creator of the product and wrote all the initial code, and trained a team of developers to learn the languages and codebase. The application was one of three new products built with the same underlying components to replace the NetHelpDesk Desktop solution.</p>'
+            },
+            {
+              name: 'Halo Service Desk',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://haloservicedesk.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/haloservicedesk-thumb.svg',
+              imagestyle: { backgroundSize: '250px', backgroundColor: 'white' },
+              images: ['https://darylbuckle.dev/assets/images/projects/haloservicedesk-1.png', 'https://darylbuckle.dev/assets/images/projects/haloservicedesk-2.png', 'https://darylbuckle.dev/assets/images/projects/haloservicedesk-3.png'],
+              private: true,
+              startdate: new Date(2017, 6, 1),
+              current: true,
+              skills: [
+                { name: 'React', group: 'Front End' },
+                { name: 'HTML', group: 'Front End' },
+                { name: 'CSS', group: 'Front End' },
+                { name: 'Javascript', group: 'Front End' },
+                { name: 'Redux', group: 'Front End' },
+                { name: 'Webpack', group: 'Front End' },
+                { name: 'Bootstrap', group: 'Front End' },
+                { name: 'C#', group: 'Back End' },
+                { name: '.NET Core 2', group: 'Back End' },
+                { name: '.NET Core 3', group: 'Back End' },
+                { name: 'Web API', group: 'Back End' },
+                { name: 'REST', group: 'Back End' },
+                { name: 'MVC', group: 'Back End' },
+                { name: 'Redis', group: 'Back End' },
+                { name: 'Microsoft SQL', group: 'Database' },
+                { name: 'Entity Framework', group: 'Database' },
+                { name: 'AWS EC2', group: 'Hosting' },
+                { name: 'IIS', group: 'Hosting' },
+                { name: 'PowerShell', group: 'Hosting' },
+                { name: 'OAuth2', group: 'Back End' },
+                { name: 'JSON', group: 'Front End' },
+                { name: 'Git', group: 'Source Control' },
+                { name: 'Kanban', group: 'Workflow' },
+              ],
+              info: '<p>Halo Service Desk is Service Desk/Ticketing software.</p>' +
+              '<p>The product consists of multiple single-page web applications built using ReactJS with C# .Net Core backend applications (Web API and OAuth2 Authentication Server built with MVC), and Microsoft SQL Server database. API is open for integrations. Application authentication was implemented with OAuth2 Authorisation Code flow with PKCE. Hosted by IIS with AWS EC2.</p>' +
+              '<p>I was the creator of the product and wrote all the initial code, and trained a team of developers to learn the languages and codebase. The application was one of three new products built with the same underlying components to replace the NetHelpDesk Desktop solution.</p>'
+            },
+            {
+              name: 'Halo Mobile',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              image: 'https://darylbuckle.dev/assets/images/projects/halo-mobile-1.png',
+              imagestyle: { backgroundSize: '104px', backgroundColor: 'black' },
+              images: ['https://darylbuckle.dev/assets/images/projects/halo-mobile-1.png', 'https://darylbuckle.dev/assets/images/projects/halo-mobile-2.png', 'https://darylbuckle.dev/assets/images/projects/halo-mobile-3.png'],
+              private: true,
+              current: true,
+              startdate: new Date(2020, 10, 1),
+              skills: [
+                { name: 'React Native', group: 'Skills' },
+                { name: 'Typescript', group: 'Skills' },
+                { name: 'iOS Apps', group: 'Skills' },
+                { name: 'Android Apps', group: 'Skills' },
+              ],
+              info: '<p>In my own time I created a new native mobile application for Halo over christmas 2020 and early 2021.</p>' +
+              '<p>This started as an exercise in learning React Native and then turned into a full application.</p>' +
+              '<p>It is cross-platform and will be available on both iOS and Android for Halo customers to download for free ' +
+              'to compliment the web-based solution. It features ticketing, push notifications and searching. ' +
+              'It authenticates with the customers own Halo api using oauth2 authorization code flow.</p>'
+            },
+            {
+              name: 'NetHelpDesk',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-win-thumb.png',
+              images: ['https://darylbuckle.dev/assets/images/projects/nethelpdesk-win-1.png'],
+              private: true,
+              startdate: new Date(2014, 2, 1),
+              enddate: new Date(2018, 4, 1),
+              skills: [
+                { name: 'Delphi XE7', group: 'Desktop Application' },
+                { name: 'Pascal', group: 'Desktop Application' },
+                { name: 'Microsoft SQL', group: 'Database' },
+                { name: 'JQuery', group: 'Portal' },
+                { name: 'Javascript', group: 'Portal' },
+                { name: 'HTML', group: 'Portal' },
+                { name: 'CSS', group: 'Portal' },
+                { name: 'PHP', group: 'Portal' },
+                { name: 'SOAP', group: 'Portal' },
+                { name: 'IIS', group: 'Portal' },
+                { name: 'Git', group: 'Source Control' }
+              ],
+              info: '<p>The NetHelpDesk solution consists of multiple windows desktop applications, a self service portal, a SOAP service and services ' +
+              'for processing email and other time sensitive tasks.</p>' +
+              '<p>The solution consists of many features serving as an all in one business solution - Ticketing, CRM, Asset Management, Contracts, Telecoms, ' +
+              'Stock Control, Remote Access, Live Chat, Service Catalogue, Knowledge Base, Email, Sales, Invoicing, and many more.</p>' +
+              '<p>This was the companies core product and has now been deprecated and replaced by the HaloITSM, HaloPSA and Halo Service Desk web based solutions.</p>' +
+              '<p>I worked on this product for several years, supporting and building many new features and integrations for customers.'
+            },
+            {
+              name: 'NetHelpDesk for iOS',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-ios-thumb.png',
+              imagestyle: { backgroundSize: '160px', backgroundColor: 'white' },
+              images: ['https://darylbuckle.dev/assets/images/projects/nethelpdesk-ios-1.png', 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-ios-2.png'],
+              private: true,
+              startdate: new Date(2014, 11, 1),
+              enddate: new Date(2019, 10, 1),
+              skills: [
+                { name: 'XCode', group: 'Skills' },
+                { name: 'Objective-C', group: 'Skills' },
+                { name: 'iOS Apps', group: 'Skills' },
+                { name: 'SQLLite', group: 'Skills' },
+                { name: 'XML', group: 'Skills' },
+                { name: 'SOAP', group: 'Skills' }
+              ],
+              info: '<p>Mobile application for the NetHelpDesk ticketing solution.</p>' +
+              '<p>The application offered basic Ticketing, Asset Management and Stock control features and was built to work without ' +
+              'an internet connection so engineers would download data to their devices before travelling to a customers site.</p>' +
+              '<p>Originally created with basic functionality by a third party but development was brought in house in December 2014. ' +
+              'I was taught how to develop iOS applications by a third party developer and then became the development lead for the iOS application.</p>'
+            },
+            {
+              name: 'NetHelpDesk Live Chat',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-chat-thumb.ico',
+              imagestyle: { backgroundSize: '40px', backgroundColor: '#353535' },
+              images: ['https://darylbuckle.dev/assets/images/projects/nethelpdesk-chat-1.png'],
+              private: true,
+              startdate: new Date(2017, 2, 1),
+              enddate: new Date(2017, 5, 1),
+              skills: [
+                { name: 'JQuery', group: 'Front End' },
+                { name: 'Javascript', group: 'Front End' },
+                { name: 'HTML', group: 'Front End' },
+                { name: 'CSS', group: 'Front End' },
+                { name: 'PHP', group: 'Back End' },
+                { name: 'JSON', group: 'Back End' },
+                { name: 'Microsoft SQL', group: 'Database' }
+              ],
+              info: '<p>NetHelpDesk Live chat was an add-on to the NetHelpDesk solution to allow Agents to communicate and End-Users' +
+              ' to get live chat support via the self service portal.</p>' +
+              '<p>The app can be plugged in to any website that uses jQuery.</p>' +
+              '<p>The backend is a PHP api.</p>' +
+              '<p>I was the lead on this project.</p>'
+            },
+            {
+              name: 'AD Self-Service Password Reset',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              image: 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-password-thumb.png',
+              imagestyle: { backgroundSize: '300px', backgroundColor: 'white' },
+              images: ['https://darylbuckle.dev/assets/images/projects/nethelpdesk-password-1.png', 'https://darylbuckle.dev/assets/images/projects/nethelpdesk-password-2.png'],
+              private: true,
+              startdate: new Date(2016, 6, 1),
+              enddate: new Date(2016, 8, 1),
+              skills: [
+                { name: 'C++', group: 'Skills' },
+                { name: 'Javascript', group: 'Skills' },
+                { name: 'HTML', group: 'Skills' },
+                { name: 'CSS', group: 'Skills' },
+                { name: 'Delphi XE7', group: 'Skills' },
+                { name: 'Pascal', group: 'Skills' },
+              ],
+              info: '<p>NetHelpDesk AD Self-Service Password Reset is an add-on to the NetHelpDesk solution to allow AD Users of ' +
+              'the software to reset their own passwords.</p>' +
+              '<p>This consisted of a web client, a custom credential provider and installer written in C++ to add an option to the windows login' +
+              ' screen for users to reset their password using security questions if they cannot log in.</p>' +
+              '<p>I was the lead on this project.</p>'
+            },
+            {
+              name: 'Skype for Business Plugin',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              imagestyle: { backgroundColor: 'white' },
+              private: true,
+              startdate: new Date(2017, 1, 1),
+              enddate: new Date(2017, 2, 1),
+              skills: [
+                { name: 'C++', group: 'Skills' }
+              ],
+              info: '<p>This was a telecoms plugin for the NetHelpDesk solution to allow Skype for Business (formerly Lync) calls to be made, answered and ' +
+              'controlled from the NetHelpDesk desktop client via a call management feature.</p>' +
+              '<p>I was the lead on this project.</p>'
+            },
+            {
+              name: '3CX Plugin',
+              owner: 'Halo Service Solutions',
+              role: 'Halo Service Solutions',
+              url: 'https://www.nethelpdesk.com',
+              imagestyle: { backgroundColor: 'white' },
+              private: true,
+              startdate: new Date(2015, 3, 1),
+              enddate: new Date(2015, 5, 1),
+              skills: [
+                { name: 'C++', group: 'Skills' }
+              ],
+              info: '<p>This was a telecoms plugin for the NetHelpDesk solution to allow 3CX calls to be made, answered and ' +
+              'controlled from the NetHelpDesk desktop client via a call management feature.</p>' +
+              '<p>I was the lead on this project.</p>'
+            },
+          ]
+        },
+        {
+          title: 'Intermodal Team Leader',
+          company: 'OOCL UK',
+          location: 'Levington, Suffolk, United Kingdom',
+          url: 'https://www.oocl.com',
+          startdate: new Date(2012, 6, 1),
+          enddate: new Date(2014, 1, 28),
+          current: false,
+          positions: [
+            {
+              title: 'Intermodal Team Leader',
+              company: 'OOCL UK',
+              startdate: new Date(2013, 8, 1),
+              enddate: new Date(2014, 1, 28),
+              current: false
+            },
+            {
+              title: 'Operations Controller',
+              company: 'OOCL UK',
+              startdate: new Date(2012, 6, 1),
+              enddate: new Date(2013, 7, 30),
+              current: false
+            },
+          ],
+          info: '<p>My first full time job after graduating from university. This role gave me my first professional experiences programming, where on the side of my day-to-day duties I worked on writing basic scripts and programs for reporting and automating day to day procedures.</p>' +
+          'Role duties;' +
+            '<ul>' +
+              '<li>Managing large groups of haulage drivers</li>' +
+              '<li>Planning transport and working closely with suppliers and managing relationships</li>' +
+              '<li>Leading and training a small team of transport operators</li>' +
+              '<li>Writing VB Scripts and Macros to automate procedures</li>' +
+              '<li>Writing applications for reporting on internal performance</li>' +
+              '<li>Studying for and achieving the Transport Manager CPC qualification</li>' +
+            '</ul>',
+          projects: [
+            {
+              name: 'Transport Automations',
+              owner: 'OOCL UK',
+              role: 'OOCL UK',
+              imagestyle: { backgroundColor: 'white' },
+              private: true,
+              startdate: new Date(2013, 6, 1),
+              enddate: new Date(2014, 0, 1),
+              skills: [
+                { name: 'Visual Basic', group: 'Skills' },
+                { name: 'Macros', group: 'Skills' }
+              ],
+              info: '<p>I wrote scripts, macros and small applications in Visual basic to automate and improve some processes such as a ' +
+              ' Truckcom export, daily to-do list and reefer control sheet.</p>'
+            },
+            {
+              name: 'Transport Reports',
+              owner: 'OOCL UK',
+              role: 'OOCL UK',
+              imagestyle: { backgroundColor: 'white' },
+              private: true,
+              startdate: new Date(2013, 3, 1),
+              enddate: new Date(2014, 0, 1),
+              skills: [
+                { name: 'Visual Basic', group: 'Skills' },
+                { name: 'Macros', group: 'Skills' }
+              ],
+              info: '<p>I wrote scripts, macros and small applications in Visual basic to create reports on the transport' +
+              ' department KPIs and stats, as well as an intermodal team monthly report.</p>'
+            },
+          ]
+        },
+      ],
+      qualifications: [
+        {
+          name: 'Bachelor of Science in Mathematics',
+          location: 'University of East Anglia',
+          grade: 'First Class Honours',
+          icon: <FontAwesomeIcon icon={faGraduationCap} size='6x' />,
+          startdate: new Date (2009, 8, 1),
+          enddate: new Date (2012, 6, 1),
+          info: '<p>Undergraduate degree. 3 year full-time study.</p> ' +
+            '<p>Modules studied;</p>' +
+            '<div class=\'text-center mb-4\'>' +
+            '<h6 class=\'text-primary\'>First Year</h6>' +
+              '<span class=\'badge badge-tertiary m-2\'>IT for Mathematicians</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Mechanics & Modelling</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Geometry</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Calculus</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Multi-Variable Calculus</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Analysis and Algebra</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Discrete Mathematics</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Pure Mathematics</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Probability</span>' +
+            '</div>' +
+            '<div class=\'text-center mb-4\'>' +
+            '<h6 class=\'text-primary\'>Second Year</h6>' +
+              '<span class=\'badge badge-tertiary m-2\'>Fluids & Solids</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Algebra</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Quantum Mechanics</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Mathematics MiniProject</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Introduction to Financial and Management Accounting</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Analysis</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Differential Equations & Algorithms</span>' +
+            '</div>' +
+            '<div class=\'text-center mb-4\'>' +
+            '<h6 class=\'text-primary\'>Final Year</h6>' +
+              '<span class=\'badge badge-tertiary m-2\'>Fluid Dynamics</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Lagrangian Systems</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Dynamical Meteorology</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Advanced Mathematical Techniques</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Mixed Boundary Value Problems</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Continuum Mechanics & Elasticity</span>' +
+              '<span class=\'badge badge-tertiary m-2\'>Mathematical Biology</span>' +
+            '</div>'
+        },
+      ],
+      skills: [
+        { name: 'Web Applications', group: 'Key Skills', level: 90 },
+        { name: 'Application Design', group: 'Key Skills', level: 80 },
+        { name: 'Leadership', group: 'Key Skills', level: 65 },
+        { name: 'Problem Solving', group: 'Key Skills', level: 90 },
+    
+        { name: 'React', group: 'Top Technologies', level: 90 },
+        { name: 'React Native', group: 'Top Technologies', level: 85 },
+        { name: 'C#', group: 'Top Technologies', level: 90 },
+        { name: '.NET Core 3', group: 'Top Technologies', level: 90 },
+        { name: 'Microsoft SQL', group: 'Top Technologies', level: 90 },
+    
+        { name: 'Angular', group: 'Technologies', level: 65 },
+        { name: 'iOS Apps', group: 'Technologies', level: 75 },
+        { name: 'Android Apps', group: 'Technologies', level: 60 },
+        { name: 'HTML', group: 'Technologies', level: 90 },
+        { name: 'CSS', group: 'Technologies', level: 90 },
+        { name: 'SCSS', group: 'Technologies', level: 90 },
+        { name: 'Javascript', group: 'Technologies', level: 90 },
+        { name: 'Typescript', group: 'Technologies', level: 90 },
+        { name: 'JQuery', group: 'Technologies', level: 80 },
+        { name: 'PHP', group: 'Technologies', level: 80 },
+        { name: 'NodeJs', group: 'Technologies', level: 70 },
+        { name: 'Redux', group: 'Technologies', level: 90 },
+        { name: 'Npm', group: 'Technologies', level: 90 },
+        { name: 'Webpack', group: 'Technologies', level: 70 },
+        { name: 'Bootstrap', group: 'Technologies', level: 90 },
+        { name: 'C++', group: 'Technologies', level: 60 },
+        { name: 'Pascal', group: 'Technologies', level: 90 },
+        { name: 'Delphi XE7', group: 'Technologies', level: 90 },
+        { name: 'XCode', group: 'Technologies', level: 70 },
+        { name: 'Objective-C', group: 'Technologies', level: 70 },
+        { name: 'Web API', group: 'Technologies', level: 90 },
+        { name: 'MVC', group: 'Technologies', level: 80 },
+        { name: 'REST', group: 'Technologies', level: 90 },
+        { name: 'GraphQL', group: 'Technologies', level: 45 },
+        { name: 'SOAP', group: 'Technologies', level: 90 },
+        { name: 'Redis', group: 'Technologies', level: 90 },
+        { name: 'Entity Framework', group: 'Technologies', level: 90 },
+        { name: 'My SQL', group: 'Technologies', level: 60 },
+        { name: 'SQLLite', group: 'Technologies', level: 80 },
+        { name: 'PowerShell', group: 'Technologies', level: 70 },
+        { name: 'Visual Basic', group: 'Technologies', level: 70 },
+        { name: 'Macros', group: 'Technologies', level: 70 },
+        { name: 'OAuth2', group: 'Technologies', level: 90 },
+        { name: 'JSON', group: 'Technologies', level: 90},
+        { name: 'XML', group: 'Technologies', level: 90 },
+        { name: 'Jekyll', group: 'Technologies', level: 70 },
+        { name: 'Azure', group: 'Technologies', level: 40 },
+        { name: 'AWS EC2', group: 'Technologies', level: 70 },
+        { name: 'GitHub Pages', group: 'Technologies', level: 90 },
+        { name: 'IIS', group: 'Technologies', level: 90 },
+        { name: 'Git', group: 'Technologies', level: 90 },
+        { name: 'TDD', group: 'Technologies', level: 70 },
+        { name: 'Kanban', group: 'Technologies', level: 85 },
+        { name: 'Scrum', group: 'Technologies', level: 60 },
+      ],
+      linkedin: 'darylbuckle',
+      github: 'DarylBuckle',
     },
     coverUrl: 'https://darylbuckle.dev/assets/images/background.jpg',
     logoUrl: 'https://darylbuckle.dev/assets/images/logo.png',
@@ -302,14 +815,78 @@ const App = () => {
         identifier: 'Projects',
         title: 'Projects',
         subTitle: 'These are my own public and private projects.\r\n\r\nSelect a Project for more information.',
-        use: 1
+        systemuse: 1
       },
       {
         identifier: 'Experience',
         title: 'Experience',
         subTitle: 'My professional experience.',
         bgColour: '#f6f6f6',
-        use: 2
+        systemuse: 2
+      },
+      {
+        identifier: 'Qualifications',
+        title: 'Qualifications',
+        subTitle: 'My academic qualifications.',
+        systemuse: 3
+      },
+      {
+        identifier: 'Skills',
+        title: 'Skills',
+        subTitle: 'My key skills and technologies.\r\n\r\nClick on a technology to show projects that use it.',
+        bgColour: '#f6f6f6',
+        systemuse: 4
+      },
+      {
+        identifier: 'About',
+        title: 'About',
+        bgColour: '#ffa500',
+        textColour: 'white',
+        content: (
+          <div>
+            <div className="hero text-left mb-5 text-white">
+                <h1 className="display-4 ">Coding</h1>
+                <p className="lead">Coding isn't just a job, it's a passion.</p>
+                <p>I taught myself how to code whilst working in transport, and this then lead to a career as a Software Engineer.</p>
+                <p>I am the CTO and head of engineering at Halo Service Solutions. At Halo, I have been able to take this passion 
+                    and thrive creating business software used by hundreds of thousands of people all around the world.</p>
+                <p>React, .NET Core and MS SQL are my top skills. I also dabble into a bit of React Native and AWS every so often.</p>
+                <p>Outside of work I continue creating applications for fun. You can take a look at some of these on my portfolio page.</p>
+            </div>
+            <br/>
+            <div className="text-center">
+                <a className="btn btn-lg" style={{ backgroundColor: '#2c3e50', color: '#ffa500' }} href="#Projects" role="button">See my work</a>
+            </div>
+            <br/>
+            <div className="hero text-right mb-5 mt-5 text-white">
+                <h1 className="display-4 ">Design</h1>
+                <p className="lead">There's nothing better than seeing designs come to life.</p>
+                <p>I love designing apps and building them. Whilst I enjoy all aspects of Full Stack Software engineering, the highlight is undoubtedly design.
+                    Whether that's coming up with the architecture, deciding how features work, or user interface design.
+                </p>
+                <p>I designed and created the HaloITSM, HaloPSA and Halo Service Desk web solutions. That includes the underlying architecture, ui design and application foundations.</p>
+            </div>
+
+          </div>
+        )
+      },
+      {
+        identifier: 'About2',
+        linkedIdentifier: 'About',
+        title: '',
+        bgColour: 'white',
+        textColour: 'red',
+        content: (
+          <div>
+            About part 2. More info will show here.
+          </div>
+        )
+      }
+    ],
+    externalLinks: [
+      {
+        title: 'Blog',
+        url: 'https://darylbuckle.dev/blog'
       }
     ]
   }}/>

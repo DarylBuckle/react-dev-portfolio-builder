@@ -28,11 +28,13 @@
     "react": "^16.0.0",
     "bootstrap": "^4.5.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@testing-library/jest-dom": "^4.2.4",
@@ -71,6 +73,8 @@
     "dist"
   ],
   "dependencies": {
-    "react-profile-avatar": "^1.0.0"
+    "@types/react-vertical-timeline-component": "^3.0.1",
+    "react-profile-avatar": "^1.0.0",
+    "react-vertical-timeline-component": "^3.3.3"
   }
 }

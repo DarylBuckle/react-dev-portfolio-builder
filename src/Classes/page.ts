@@ -8,13 +8,19 @@ export interface Page {
   textColour?: string
   bgColour?: string
   sections: Section[]
+  externalLinks: Link[]
 }
-
 export interface Section {
-  use?: number
+  systemuse?: number
   identifier?: string
+  linkedIdentifier?: string
   title?: string
   subTitle?: string
   bgColour?: string
   textColour?: string
+  content?: any
+}
+export interface Link {
+  title?: string
+  url?: string
 }

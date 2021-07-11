@@ -135,7 +135,7 @@
 
 
 
-.react-dev-portfolio p, .react-dev-portfolio .details{
+.react-dev-portfolio .section-header-desc{
   color: #777;
 }
 
@@ -202,4 +202,80 @@
 .react-dev-portfolio .project-tile .project-item span{
   font-size: 86px;
   font-weight: bold;
+}
+
+.react-dev-portfolio .role-tile .vertical-timeline-element-content {
+  box-shadow: 0 0.1rem 1rem 0 rgba(25, 25, 25, 0.1);
+  padding: 20px 30px 0px;
+}
+.react-dev-portfolio .role-tile .timeline-item-duration{
+  display: block;
+  margin-bottom: .5rem;
+  text-align: right;
+}
+@media (min-width: 992px){
+  .react-dev-portfolio .role-tile .timeline-item-duration{
+      float:right;
+      margin-bottom: 0;
+  }
+}
+
+.react-dev-portfolio .qualification-item {
+  border-radius: 20px;
+  width: 100%;
+  height: 330px;
+  cursor: pointer;
+  padding: 30px 10px;
+  box-shadow: 0 0.1rem 1rem 0 rgba(25, 25, 25, 0.1);
+}
+.react-dev-portfolio .qualification-item img {
+  max-height: 100px;
+  width: inherit;
+}
+
+.react-dev-portfolio .skills-large {
+  width: 100%;
+}
+.react-dev-portfolio .skills-large h6 {
+  font-size: 1.6rem;
+}
+.react-dev-portfolio .skills-large .skill-group{ 
+  margin-bottom: 4rem !important;
+  width: 100%;
+}
+.react-dev-portfolio .skill .skill-label {
+  width: 120px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.react-dev-portfolio .skill .perc-bar {
+  display: inline-block;
+  width: calc(100% - 140px);
+  height: 18px;
+  position: relative;
+  vertical-align: middle;
+}
+.react-dev-portfolio .skill .perc-bar .perc-bar-progress{
+  display: inline-block;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  transition: all 1s ease-out;
+  position: relative;
+  color: white;
+  padding-left: 5px;
+}
+.react-dev-portfolio .skill .perc-bar span{
+  vertical-align: top;
+}
+.react-dev-portfolio .skill .selectable:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 0.7;
+}
+@media (max-width: 1000px){
+  .react-dev-portfolio .skill-level{
+      display: none !important;
+  }
 }

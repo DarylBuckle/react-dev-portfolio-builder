@@ -24,7 +24,11 @@ export const ProjectTileComponent = ({ project }: Props) => {
       >
         {!project.image && (
           <div>
-            <FontAwesomeIcon icon={faCode} size='8x' />
+            {project.icon ? (
+              project.icon
+            ) : (
+              <FontAwesomeIcon icon={faCode} size='8x' />
+            )}
           </div>
         )}
       </div>
