@@ -10,12 +10,14 @@ interface GroupProps {
   skills: Skill[]
   showProjects?: boolean
   user?: User
+  onProjectClick?: (project: Project) => void
 }
 
 export const SkillGroupComponent = ({
   skills,
   showProjects,
-  user
+  user,
+  onProjectClick
 }: GroupProps) => {
   const skillgroups = []
   if (skills) {
@@ -52,10 +54,11 @@ export const SkillGroupComponent = ({
           <h6>{s.name}</h6>
           {s.skills.map((skill) => (
             <SkillBarComponent
-              key={'skillbar-' + i}
+              key={'skillbar-' + skill.name + i}
               skill={skill}
               showProjects={showProjects}
               user={user}
+              onProjectClick={onProjectClick}
             />
           ))}
         </div>
@@ -68,12 +71,14 @@ interface SkillProps {
   skill: Skill
   showProjects?: boolean
   user?: User
+  onProjectClick?: (project: Project) => void
 }
 
 export const SkillBarComponent = ({
   skill,
   showProjects,
-  user
+  user,
+  onProjectClick
 }: SkillProps) => {
   function addProjects(projects: Project[]) {
     const newProjects: Project[] = []
@@ -145,16 +150,16 @@ export const SkillBarComponent = ({
   const skillLevel = getSkillLevel()
   const level = skill.level ? skill.level : 0
 
-  const projects: Project[] = []
+  let projects: Project[] = []
   if (showProjects) {
     if (user) {
       if (user.projects) {
-        projects.concat(addProjects(user.projects))
+        projects = projects.concat(addProjects(user.projects))
       }
       if (user.roles) {
         for (const role of user.roles) {
           if (role.projects) {
-            projects.concat(addProjects(role.projects))
+            projects = projects.concat(addProjects(role.projects))
           }
         }
       }
@@ -191,7 +196,8 @@ export const SkillBarComponent = ({
             {projects.map((p, i) => (
               <button
                 key={'skill-project-' + i}
-                className='btn badge badge-primary text-primary-text m-2'
+                className='btn pill m-2'
+                onClick={onProjectClick ? () => onProjectClick(p) : undefined}
               >
                 {p.name}
               </button>

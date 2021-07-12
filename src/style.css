@@ -1,4 +1,4 @@
-.react-dev-portfolio {
+.react-dev-portfolio.main {
   margin: 0px;
   color: #444;
   scroll-behavior: smooth;
@@ -278,4 +278,35 @@
   .react-dev-portfolio .skill-level{
       display: none !important;
   }
+}
+
+.react-dev-portfolio  button.pill {
+  background-color: transparent;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px #eee solid;
+}
+
+.react-dev-portfolio .carousel-inner img {
+  max-height: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.react-dev-portfolio .carousel-control-prev,
+.react-dev-portfolio .carousel-control-next {
+  width: 5%;
+}
+.react-dev-portfolio .images {
+  text-align: center;
+}
+.react-dev-portfolio .qualification-modal img {
+  max-height: 200px;
+  width: inherit;
 }

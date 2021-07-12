@@ -713,7 +713,7 @@ const App = () => {
           info: '<p>Undergraduate degree. 3 year full-time study.</p> ' +
             '<p>Modules studied;</p>' +
             '<div class=\'text-center mb-4\'>' +
-            '<h6 class=\'text-primary\'>First Year</h6>' +
+            '<h6 class=\'text-colour\'>First Year</h6>' +
               '<span class=\'badge badge-tertiary m-2\'>IT for Mathematicians</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Mechanics & Modelling</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Geometry</span>' +
@@ -725,7 +725,7 @@ const App = () => {
               '<span class=\'badge badge-tertiary m-2\'>Probability</span>' +
             '</div>' +
             '<div class=\'text-center mb-4\'>' +
-            '<h6 class=\'text-primary\'>Second Year</h6>' +
+            '<h6 class=\'text-colour\'>Second Year</h6>' +
               '<span class=\'badge badge-tertiary m-2\'>Fluids & Solids</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Algebra</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Quantum Mechanics</span>' +
@@ -735,7 +735,7 @@ const App = () => {
               '<span class=\'badge badge-tertiary m-2\'>Differential Equations & Algorithms</span>' +
             '</div>' +
             '<div class=\'text-center mb-4\'>' +
-            '<h6 class=\'text-primary\'>Final Year</h6>' +
+            '<h6 class=\'text-colour\'>Final Year</h6>' +
               '<span class=\'badge badge-tertiary m-2\'>Fluid Dynamics</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Lagrangian Systems</span>' +
               '<span class=\'badge badge-tertiary m-2\'>Dynamical Meteorology</span>' +

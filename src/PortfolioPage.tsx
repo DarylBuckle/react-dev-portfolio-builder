@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavComponent } from './Components/Nav'
 import { Avatar } from 'react-profile-avatar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons'
+import { Modal } from 'react-bootstrap'
 import { idealTextColor, displayMemo } from './Functions/CommonFunctions'
 import {
   HeaderSectionComponent,
@@ -24,12 +25,42 @@ import 'react-vertical-timeline-component/style.min.css'
 import { RoleTileComponent } from './Components/RoleTile'
 import { QualificationTileComponent } from './Components/QualificationTile'
 import { SkillGroupComponent } from './Components/SkillBar'
+// eslint-disable-next-line no-unused-vars
+import { Project } from './Classes/project'
+// eslint-disable-next-line no-unused-vars
+import { Qualification } from './Classes/qualification'
+import { ProjectModalComponent } from './Components/ProjectModal'
+import { QualificationModalComponent } from './Components/QualificationModal'
 
 interface Props {
   page: Page
+  projectClick?: (project: Project) => void
+  qualificationClick?: (qualification: Qualification) => void
 }
 
-export default ({ page }: Props) => {
+export default ({ page, projectClick, qualificationClick }: Props) => {
+  const [projectModal, setProjectModal] = useState<Project>()
+  function onProjectClick(project: Project) {
+    if (projectClick) {
+      // Project click overridden
+      projectClick(project)
+    } else {
+      // Show default modal
+      setProjectModal(project)
+    }
+  }
+
+  const [qualificationModal, setQualificationModal] = useState<Qualification>()
+  function onQualificationClick(qualification: Qualification) {
+    if (qualificationClick) {
+      // Project click overridden
+      qualificationClick(qualification)
+    } else {
+      // Show default modal
+      setQualificationModal(qualification)
+    }
+  }
+
   const sectionContent = []
   const navLinks = []
   let headerNextColour: string | undefined
@@ -55,7 +86,7 @@ export default ({ page }: Props) => {
                     <div
                       key={'project-tile-' + p.name}
                       className='project-tile col-md-6 col-lg-4 mb-5'
-                      onClick={() => window.alert('Clicked ' + p.name)}
+                      onClick={() => onProjectClick(p)}
                     >
                       <ProjectTileComponent project={p} />
                     </div>
@@ -92,7 +123,10 @@ export default ({ page }: Props) => {
                         />
                       }
                     >
-                      <RoleTileComponent role={r} />
+                      <RoleTileComponent
+                        role={r}
+                        onProjectClick={onProjectClick}
+                      />
                     </VerticalTimelineElement>
                   )
                 })}
@@ -108,7 +142,7 @@ export default ({ page }: Props) => {
                     <div
                       key={'qualification-tile-' + q.name}
                       className='col-md-4 col-lg-3 col-sm-6 mb-3'
-                      onClick={() => window.alert('Clicked ' + q.name)}
+                      onClick={() => onQualificationClick(q)}
                     >
                       <QualificationTileComponent qualification={q} />
                     </div>
@@ -125,6 +159,7 @@ export default ({ page }: Props) => {
                   skills={page.user.skills}
                   showProjects
                   user={page.user}
+                  onProjectClick={onProjectClick}
                 />
               )}
             </div>
@@ -167,13 +202,16 @@ export default ({ page }: Props) => {
   }
 
   return (
-    <div className='react-dev-portfolio'>
+    <div className='react-dev-portfolio main'>
       <style>
         {`.react-dev-portfolio .project-tile h5:hover,
           .react-dev-portfolio .role-tile span,
           .react-dev-portfolio .role-tile .project-more-btn:hover,
           .react-dev-portfolio .skill .selectable:hover,
-          .react-dev-portfolio .skill-group h6 {
+          .react-dev-portfolio .skill-group h6,
+          .react-dev-portfolio .text-colour,
+          .react-dev-portfolio .images,
+          .react-dev-portfolio .images span {
             color: ${page.textColour};
         }
         .react-dev-portfolio a {
@@ -184,7 +222,9 @@ export default ({ page }: Props) => {
         .react-dev-portfolio a:hover, .react-dev-portfolio a:visited, .react-dev-portfolio a:focus {
           color: ${page.textColour};
         }
-        .react-dev-portfolio .media-bubble {
+        .react-dev-portfolio .media-bubble,
+        .react-dev-portfolio button.pill,
+        .react-dev-portfolio .carousel-indicators li {
           background-color: ${page.textColour};
           color: ${idealTextColor(page.textColour)} !important;
         }
@@ -236,6 +276,75 @@ export default ({ page }: Props) => {
         textColour={idealTextColor(page.bgColour)}
         user={page.user}
       />
+      {!projectClick && (
+        <Modal
+          className='react-dev-portfolio'
+          show={projectModal != null}
+          onHide={() => {
+            setProjectModal(undefined)
+          }}
+          centered
+          size='xl'
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ color: page.textColour }}>
+              {projectModal ? projectModal.name : ''}
+            </Modal.Title>
+          </Modal.Header>
+          {projectModal && <ProjectModalComponent project={projectModal} />}
+          <div className='modal-footer text-center justify-content-center'>
+            <button
+              type='button'
+              className='btn'
+              data-dismiss='modal'
+              style={{
+                backgroundColor: page.textColour,
+                color: idealTextColor(page.bgColour)
+              }}
+              onClick={() => {
+                setProjectModal(undefined)
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
+      )}
+      {!qualificationClick && (
+        <Modal
+          className='react-dev-portfolio'
+          show={qualificationModal != null}
+          onHide={() => {
+            setQualificationModal(undefined)
+          }}
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ color: page.textColour }}>
+              {qualificationModal ? qualificationModal.name : ''}
+            </Modal.Title>
+          </Modal.Header>
+          {qualificationModal && (
+            <QualificationModalComponent qualification={qualificationModal} />
+          )}
+          <div className='modal-footer text-center justify-content-center'>
+            <button
+              type='button'
+              className='btn'
+              data-dismiss='modal'
+              style={{
+                backgroundColor: page.textColour,
+                color: idealTextColor(page.bgColour)
+              }}
+              onClick={() => {
+                setQualificationModal(undefined)
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
+      )}
     </div>
   )
 }

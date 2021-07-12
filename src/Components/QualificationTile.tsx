@@ -33,7 +33,7 @@ export const QualificationTileComponent = ({ qualification }: Props) => {
         </span>
       )}
       {(qualification.startdate || qualification.enddate) && (
-        <div className='text-primary mb-2'>
+        <div className='text-colour mb-2'>
           <DateRange
             startdate={qualification.startdate}
             enddate={qualification.enddate}

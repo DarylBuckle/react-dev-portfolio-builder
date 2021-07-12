@@ -17,6 +17,8 @@ import { ProjectTileComponent } from './Components/ProjectTile'
 import { RoleTileComponent } from './Components/RoleTile'
 import { QualificationTileComponent } from './Components/QualificationTile'
 import { SkillGroupComponent, SkillBarComponent } from './Components/SkillBar'
+import { ProjectModalComponent } from './Components/ProjectModal'
+import { QualificationModalComponent } from './Components/QualificationModal'
 
 import './style.css'
 
@@ -36,5 +38,7 @@ export {
   RoleTileComponent,
   QualificationTileComponent,
   SkillGroupComponent,
-  SkillBarComponent
+  SkillBarComponent,
+  ProjectModalComponent,
+  QualificationModalComponent
 }

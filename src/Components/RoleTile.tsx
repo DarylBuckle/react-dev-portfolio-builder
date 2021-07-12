@@ -5,14 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faEllipsisH } from '@fortawesome/free-solid-svg-icons'
 import { ProjectTileComponent } from './ProjectTile'
 import DateRange from './DateRange'
+// eslint-disable-next-line no-unused-vars
+import { Project } from '../Classes/project'
 
 const pageSize = 4
 
 interface Props {
   role: Role
+  onProjectClick?: (project: Project) => void
 }
 
-export const RoleTileComponent = ({ role }: Props) => {
+export const RoleTileComponent = ({ role, onProjectClick }: Props) => {
   const [projectsToShow, setProjectsToShow] = useState(pageSize)
 
   const projectsList = []
@@ -93,7 +96,7 @@ export const RoleTileComponent = ({ role }: Props) => {
               <div
                 key={'project-tile-' + p.name}
                 className='project-tile col-md-6 col-lg-6 mb-5'
-                onClick={() => window.alert('Clicked ' + p.name)}
+                onClick={onProjectClick ? () => onProjectClick(p) : undefined}
               >
                 <ProjectTileComponent project={p} />
               </div>
