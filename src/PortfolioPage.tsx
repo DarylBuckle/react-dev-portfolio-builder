@@ -73,7 +73,9 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
       if (i1 === 0) {
         headerNextColour = s.bgColour
       }
-      let nextColour: string | undefined = page.bgColour
+      let nextColour: string | undefined = page.hideFooter
+        ? s.bgColour
+        : page.bgColour
       if (i1 < page.sections.length - 1) {
         nextColour = page.sections[i1 + 1].bgColour
       }
@@ -173,6 +175,8 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
           break
       }
 
+      const backgroundDark = idealTextColor(s.bgColour) === '#fff'
+
       sectionContent.push(
         <SectionComponent
           key={'section-' + i1}
@@ -187,7 +191,10 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                 <div className='section-header col-lg-6'>
                   {s.title && <h2>{s.title}</h2>}
                   {s.subTitle && (
-                    <p className='section-header-desc'>
+                    <p
+                      className='section-header-desc'
+                      style={{ color: backgroundDark ? '#ddd' : undefined }}
+                    >
                       {displayMemo(s.subTitle)}
                     </p>
                   )}
@@ -254,7 +261,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
       >
         <div className='text-center' style={{ marginTop: '50px' }}>
           <Avatar
-            name='Daryl Buckle'
+            name={user.firstname + ' ' + user.lastname}
             imageSrc={user.imageUrl}
             size={200}
             borderSize={5}
@@ -278,11 +285,14 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
         </div>
       </HeaderSectionComponent>
       {sectionContent}
-      <FooterComponent
-        backgroundColor={page.bgColour}
-        textColour={idealTextColor(page.bgColour)}
-        user={user}
-      />
+      {page.hideFooter !== true && (
+        <FooterComponent
+          backgroundColor={page.bgColour}
+          textColour={idealTextColor(page.bgColour)}
+          user={user}
+          page={page}
+        />
+      )}
       {!projectClick && (
         <Modal
           className='react-dev-portfolio'

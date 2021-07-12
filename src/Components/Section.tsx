@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 // eslint-disable-next-line no-unused-vars
 import { User } from '../Classes/user'
+// eslint-disable-next-line no-unused-vars
+import { Page } from '../Classes/page'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebookF,
@@ -19,6 +21,7 @@ interface Props {
   children?: any
   backgroundImageUrl?: string
   user?: User
+  page?: Page
 }
 
 export const HeaderSectionComponent = (props: Props) => {
@@ -120,8 +123,7 @@ export const FooterComponent = (props: Props) => {
   if (!props.textColour) {
     footerClasses += ' text-white'
   }
-  const year = new Date().getFullYear()
-  const { user } = props
+  const { user, page } = props
 
   return (
     <footer
@@ -137,43 +139,49 @@ export const FooterComponent = (props: Props) => {
       <div className='container'>
         <div className='row'>
           <div className='col-lg-4 mb-5 mb-lg-0'>
-            {user?.location && (
-              <div className='footer-contact-info mb-4 mt-4'>
-                <a
-                  target='_blank'
-                  href={`https://www.google.com/maps/place/${user.location}`}
-                  rel='noreferrer'
-                >
-                  <FontAwesomeIcon
-                    icon={faMapMarkerAlt}
-                    className='mr-2'
-                    size='lg'
-                  />
-                  <br />
-                  {user.location}
-                </a>
-              </div>
-            )}
-            {user?.mailto && (
-              <div className='footer-contact-info mb-4 mt-4'>
-                <a
-                  target='_blank'
-                  href={`mailto:${user.mailto}`}
-                  rel='noreferrer'
-                >
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className='mr-2'
-                    size='lg'
-                  />
-                  <br />
-                  {user.mailto}
-                </a>
-              </div>
+            {page?.footerLContent ? (
+              page.footerLContent
+            ) : (
+              <Fragment>
+                {user?.location && (
+                  <div className='footer-contact-info mb-4 mt-4'>
+                    <a
+                      target='_blank'
+                      href={`https://www.google.com/maps/place/${user.location}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon
+                        icon={faMapMarkerAlt}
+                        className='mr-2'
+                        size='lg'
+                      />
+                      <br />
+                      {user.location}
+                    </a>
+                  </div>
+                )}
+                {user?.mailto && (
+                  <div className='footer-contact-info mb-4 mt-4'>
+                    <a
+                      target='_blank'
+                      href={`mailto:${user.mailto}`}
+                      rel='noreferrer'
+                    >
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className='mr-2'
+                        size='lg'
+                      />
+                      <br />
+                      {user.mailto}
+                    </a>
+                  </div>
+                )}
+              </Fragment>
             )}
           </div>
           <div className='col-lg-4 mb-5 mt-3 mb-lg-0'>
-            {props.children}
+            {page?.footerCContent}
             {user && (
               <ul className='list-inline my-3'>
                 {user.facebook && (
@@ -258,32 +266,32 @@ export const FooterComponent = (props: Props) => {
             )}
           </div>
           <div className='col-lg-4 mb-5 mb-lg-0'>
-            <div className='footer-contact-info mb-3 mt-4'>
-              This site is based on{' '}
-              <a
-                target='_blank'
-                href='https://www.github.com/DarylBuckle/react-dev-portfolio'
-                rel='noreferrer'
-              >
-                react-dev-portfolio
-              </a>
-              , a free to use, MIT licensed theme created by{' '}
-              <a
-                target='_blank'
-                href='https://www.github.com/DarylBuckle'
-                rel='noreferrer'
-              >
-                Daryl Buckle
-              </a>
-              .
-            </div>
+            {page?.footerRContent ? (
+              page.footerRContent
+            ) : (
+              <div className='footer-contact-info mb-3 mt-4'>
+                This site is based on{' '}
+                <a
+                  target='_blank'
+                  href='https://www.github.com/DarylBuckle/react-dev-portfolio'
+                  rel='noreferrer'
+                >
+                  react-dev-portfolio
+                </a>
+                , a free to use, MIT licensed theme created by{' '}
+                <a
+                  target='_blank'
+                  href='https://www.github.com/DarylBuckle'
+                  rel='noreferrer'
+                >
+                  Daryl Buckle
+                </a>
+                .
+              </div>
+            )}
           </div>
         </div>
-        {user && (
-          <p className='text-white small mt-5 mb-0'>
-            {`Copyright © ${user.firstname + ' ' + user.lastname} ${year}`}
-          </p>
-        )}
+        {page?.footerEnd}
       </div>
     </footer>
   )

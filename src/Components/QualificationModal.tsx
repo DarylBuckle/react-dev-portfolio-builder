@@ -42,7 +42,9 @@ export const QualificationModalComponent = ({ qualification }: Props) => {
           </div>
         )}
         <div className='mt-2 mb-2'>
-          <span className='font-weight-bold'>{`Grade: ${qualification.grade}`}</span>
+          {qualification.grade && (
+            <span className='font-weight-bold'>{`Grade: ${qualification.grade}`}</span>
+          )}
         </div>
       </div>
       <div className='container'>

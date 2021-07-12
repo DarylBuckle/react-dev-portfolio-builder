@@ -14,7 +14,7 @@ interface Props {
   navSize?: number | undefined
   mailto?: string
   links: Section[]
-  externalLinks: Link[]
+  externalLinks?: Link[]
 }
 
 export const NavComponent = (props: Props) => {

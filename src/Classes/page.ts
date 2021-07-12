@@ -5,7 +5,12 @@ export interface Page {
   textColour?: string
   bgColour?: string
   sections: Section[]
-  externalLinks: Link[]
+  externalLinks?: Link[]
+  hideFooter?: boolean
+  footerLContent?: any
+  footerCContent?: any
+  footerRContent?: any
+  footerEnd?: any
 }
 export interface Section {
   id?: number

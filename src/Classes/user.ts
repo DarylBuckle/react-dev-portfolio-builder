@@ -10,9 +10,9 @@ export interface User {
   email?: string // Your contact email address.
   firstname: string // Your first name.
   lastname: string // Your surname.
-  headline: string // Your current job title.
+  headline?: string // Your current job title.
   title?: string // Your current job title 2.
-  imageUrl: string // profile pic url.
+  imageUrl?: string // profile pic url.
   location?: string // Your current location.
   projects?: Project[] // A list of your own projects outside of employment.
   roles?: Role[] // A list of companies that you have been employed at.
