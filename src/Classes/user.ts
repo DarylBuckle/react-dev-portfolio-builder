@@ -5,7 +5,7 @@ import { Qualification } from './qualification'
 import { Skill } from './skill'
 
 export interface User {
-  id?: string // Users id
+  id?: number // Users id
   name?: string // Users name
   email?: string // Your contact email address.
   firstname: string // Your first name.

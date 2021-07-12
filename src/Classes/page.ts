@@ -1,8 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import { User } from './user'
-
 export interface Page {
-  user: User
+  id?: number
   coverUrl?: string
   logoUrl?: string
   textColour?: string
@@ -11,6 +8,7 @@ export interface Page {
   externalLinks: Link[]
 }
 export interface Section {
+  id?: number
   systemuse?: number
   identifier?: string
   linkedIdentifier?: string
@@ -21,6 +19,7 @@ export interface Section {
   content?: any
 }
 export interface Link {
+  id?: number
   title?: string
   url?: string
 }

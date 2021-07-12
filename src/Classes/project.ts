@@ -2,11 +2,12 @@
 import { Skill } from './skill'
 
 export interface Project {
+  id?: number
   name?: string // The name/title of the project.
   owner: string // The person or company who owns the project
   role?: string // Enter the name of the company used in the 'company' property of the 'role' model if applicable.
-  image?: string // The url of an image to show instead of an icon. This can be the url of a public image or the path of a local asset.
-  imagestyle?: object // If image is set you can use this to apply custom styles to the image.
+  thumbnail?: string // The url of an image to show instead of an icon. This can be the url of a public image or the path of a local asset.
+  thumbnailStyle?: object // If image is set you can use this to apply custom styles to the image.
   images?: string[] // This will show multiple images in a carousel on the modal screen instead of 'image'.
   icon?: any // An icon to use in place of an image
   url?: string // A link to more information about the project. Will show on the modal screen.

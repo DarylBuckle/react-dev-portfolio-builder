@@ -53,7 +53,10 @@ export const ProjectModalComponent = ({ project }: Props) => {
           </div>
         )}
       </div>
-      <ImageGalleryComponent image={project.image} images={project.images} />
+      <ImageGalleryComponent
+        image={project.thumbnail}
+        images={project.images}
+      />
       <div className='container'>
         {project.info && (
           <div

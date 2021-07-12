@@ -13,6 +13,12 @@ import {
 
 // eslint-disable-next-line no-unused-vars
 import { Page } from './Classes/page'
+// eslint-disable-next-line no-unused-vars
+import { User } from './Classes/user'
+// eslint-disable-next-line no-unused-vars
+import { Project } from './Classes/project'
+// eslint-disable-next-line no-unused-vars
+import { Qualification } from './Classes/qualification'
 
 import 'react-profile-avatar/dist/index.css'
 import { ProjectTileComponent } from './Components/ProjectTile'
@@ -25,20 +31,17 @@ import 'react-vertical-timeline-component/style.min.css'
 import { RoleTileComponent } from './Components/RoleTile'
 import { QualificationTileComponent } from './Components/QualificationTile'
 import { SkillGroupComponent } from './Components/SkillBar'
-// eslint-disable-next-line no-unused-vars
-import { Project } from './Classes/project'
-// eslint-disable-next-line no-unused-vars
-import { Qualification } from './Classes/qualification'
 import { ProjectModalComponent } from './Components/ProjectModal'
 import { QualificationModalComponent } from './Components/QualificationModal'
 
 interface Props {
   page: Page
+  user: User
   projectClick?: (project: Project) => void
   qualificationClick?: (qualification: Qualification) => void
 }
 
-export default ({ page, projectClick, qualificationClick }: Props) => {
+export default ({ page, user, projectClick, qualificationClick }: Props) => {
   const [projectModal, setProjectModal] = useState<Project>()
   function onProjectClick(project: Project) {
     if (projectClick) {
@@ -80,8 +83,8 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         case 1: // My projects grid
           content = (
             <div className='row justify-content-center'>
-              {page.user.projects &&
-                page.user.projects.map((p) => {
+              {user.projects &&
+                user.projects.map((p) => {
                   return (
                     <div
                       key={'project-tile-' + p.name}
@@ -98,8 +101,8 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         case 2: // Experience
           content = (
             <VerticalTimeline layout='1-column'>
-              {page.user.roles &&
-                page.user.roles.map((r, i) => {
+              {user.roles &&
+                user.roles.map((r, i) => {
                   return (
                     <VerticalTimelineElement
                       key={'timelineElement-' + i}
@@ -117,7 +120,7 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
                       }
                       icon={
                         <FontAwesomeIcon
-                          style={{ marginLeft: '-10px' }}
+                          style={{ marginLeft: '-11px' }}
                           icon={faBriefcase}
                           size='lg'
                         />
@@ -136,8 +139,8 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         case 3: // Qualifications
           content = (
             <div className='row justify-content-center'>
-              {page.user.qualifications &&
-                page.user.qualifications.map((q) => {
+              {user.qualifications &&
+                user.qualifications.map((q) => {
                   return (
                     <div
                       key={'qualification-tile-' + q.name}
@@ -154,11 +157,11 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         case 4: // Skills
           content = (
             <div className='row justify-content-center'>
-              {page.user.skills && (
+              {user.skills && (
                 <SkillGroupComponent
-                  skills={page.user.skills}
+                  skills={user.skills}
                   showProjects
-                  user={page.user}
+                  user={user}
                   onProjectClick={onProjectClick}
                 />
               )}
@@ -222,6 +225,10 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         .react-dev-portfolio a:hover, .react-dev-portfolio a:visited, .react-dev-portfolio a:focus {
           color: ${page.textColour};
         }
+        .react-dev-portfolio footer a, .react-dev-portfolio footer a:visited {
+          color: ${idealTextColor(page.bgColour)};
+          text-decoration: underline;
+        }
         .react-dev-portfolio .media-bubble,
         .react-dev-portfolio button.pill,
         .react-dev-portfolio .carousel-indicators li {
@@ -233,9 +240,9 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
       <NavComponent
         backgroundColor={page.bgColour}
         textColour={page.textColour}
-        title={page.user.firstname + ' ' + page.user.lastname}
+        title={user.firstname + ' ' + user.lastname}
         logoUrl={page.logoUrl}
-        mailto={page.user.mailto}
+        mailto={user.mailto}
         links={navLinks}
         externalLinks={page.externalLinks}
       />
@@ -248,7 +255,7 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
         <div className='text-center' style={{ marginTop: '50px' }}>
           <Avatar
             name='Daryl Buckle'
-            imageSrc={page.user.imageUrl}
+            imageSrc={user.imageUrl}
             size={200}
             borderSize={5}
             borderColour={page.textColour}
@@ -256,17 +263,17 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
           />
           <div className='profile-intro'>
             <div className='name'>
-              <h1 className='display-4 name-1'> {page.user.firstname}</h1>
+              <h1 className='display-4 name-1'> {user.firstname}</h1>
               <h1 className='display-4 name-mid'>&#8729;</h1>
-              <h1 className='display-4 name-2'> {page.user.lastname}</h1>
+              <h1 className='display-4 name-2'> {user.lastname}</h1>
             </div>
             <div
               className='profile-detail'
               style={{ color: idealTextColor(page.bgColour) }}
             >
-              {page.user.headline}
+              {user.headline}
             </div>
-            <div className='profile-detail small'>{page.user.title}</div>
+            <div className='profile-detail small'>{user.title}</div>
           </div>
         </div>
       </HeaderSectionComponent>
@@ -274,7 +281,7 @@ export default ({ page, projectClick, qualificationClick }: Props) => {
       <FooterComponent
         backgroundColor={page.bgColour}
         textColour={idealTextColor(page.bgColour)}
-        user={page.user}
+        user={user}
       />
       {!projectClick && (
         <Modal

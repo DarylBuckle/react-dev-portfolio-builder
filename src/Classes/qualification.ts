@@ -1,4 +1,5 @@
 export interface Qualification {
+  id?: number
   name: string // The name/title of the qualifcation.
   location?: string // The place of study.
   grade?: string // Grade obtained.

@@ -18,11 +18,11 @@ export const ProjectTileComponent = ({ project }: Props) => {
         className='project-item hvr-grow-shadow rounded-lg lift mt-3 mb-2'
         title={project.name}
         style={{
-          ...project.imagestyle,
-          backgroundImage: 'url(' + project.image + ')'
+          ...project.thumbnailStyle,
+          backgroundImage: 'url(' + project.thumbnail + ')'
         }}
       >
-        {!project.image && (
+        {!project.thumbnail && (
           <div>
             {project.icon ? (
               project.icon

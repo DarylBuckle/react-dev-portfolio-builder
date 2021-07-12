@@ -2,6 +2,7 @@
   "name": "react-dev-portfolio",
   "version": "1.0.0",
   "description": "Developer portfolio made in React.",
+  "private": true,
   "author": "DarylBuckle",
   "license": "MIT",
   "repository": "DarylBuckle/react-dev-portfolio",

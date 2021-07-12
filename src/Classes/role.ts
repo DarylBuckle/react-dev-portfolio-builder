@@ -1,6 +1,7 @@
 import { Project } from './project'
 
 export interface Role {
+  id?: number
   title: string // Your job title.
   company: string // The name of the company.
   location?: string // Your place of work.

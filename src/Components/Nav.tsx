@@ -129,7 +129,12 @@ export const NavComponent = (props: Props) => {
       }}
     >
       <div className='container'>
-        <a id='app-home-logo' className='navbar-brand' href='#'>
+        <a
+          id='app-home-logo'
+          className='navbar-brand'
+          href='#'
+          style={{ color: idealTextColor(props.textColour) }}
+        >
           {props.logoUrl ? (
             <img
               style={{ maxWidth: '130px' }}
