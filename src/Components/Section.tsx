@@ -270,7 +270,7 @@ export const FooterComponent = (props: Props) => {
               page.footerRContent
             ) : (
               <div className='footer-contact-info mb-3 mt-4'>
-                This site is based on{' '}
+                This site was created with{' '}
                 <a
                   target='_blank'
                   href='https://www.github.com/DarylBuckle/react-dev-portfolio-builder'
@@ -278,7 +278,7 @@ export const FooterComponent = (props: Props) => {
                 >
                   react-dev-portfolio-builder
                 </a>
-                , a free to use, MIT licensed theme created by{' '}
+                , a free to use, MIT licensed component created by{' '}
                 <a
                   target='_blank'
                   href='https://www.github.com/DarylBuckle'
