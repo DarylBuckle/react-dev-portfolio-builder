@@ -71,6 +71,6 @@
     "bootstrap": "^4.5.2",
     "@types/react-vertical-timeline-component": "^3.0.1",
     "react-profile-avatar": "^1.0.0",
-    "react-vertical-timeline-component": "^3.3.3",
+    "react-vertical-timeline-component": "^3.3.3"
   }
 }
