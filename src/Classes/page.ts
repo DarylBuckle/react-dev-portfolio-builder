@@ -14,7 +14,7 @@ export interface Page {
 }
 export interface Section {
   id?: number
-  systemuse?: number
+  systemUse?: string
   identifier?: string
   linkedIdentifier?: string
   title?: string

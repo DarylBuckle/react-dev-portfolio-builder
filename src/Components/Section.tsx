@@ -273,10 +273,10 @@ export const FooterComponent = (props: Props) => {
                 This site is based on{' '}
                 <a
                   target='_blank'
-                  href='https://www.github.com/DarylBuckle/react-dev-portfolio'
+                  href='https://www.github.com/DarylBuckle/react-dev-portfolio-builder'
                   rel='noreferrer'
                 >
-                  react-dev-portfolio
+                  react-dev-portfolio-builder
                 </a>
                 , a free to use, MIT licensed theme created by{' '}
                 <a

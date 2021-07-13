@@ -1,35 +1,35 @@
-.react-dev-portfolio.main {
+.react-dev-portfolio-builder.main {
   margin: 0px;
   color: #444;
   scroll-behavior: smooth;
 }
 
-.react-dev-portfolio .navbar{
+.react-dev-portfolio-builder .navbar{
   padding: 20px 20px;
   transition: top .3s, background-color .5s;
 }
-.react-dev-portfolio .navbar.small{
+.react-dev-portfolio-builder .navbar.small{
   padding: 15px 0;
 }
-.react-dev-portfolio .navbar .navbar-collapse.collapse.show .btn{
+.react-dev-portfolio-builder .navbar .navbar-collapse.collapse.show .btn{
   margin-top: 20px;
 }
-.react-dev-portfolio .navbar .nav-link.active{
+.react-dev-portfolio-builder .navbar .nav-link.active{
   color: green;
   font-weight: normal;
 }
 @media (min-width: 992px){
-  .react-dev-portfolio .navbar{
+  .react-dev-portfolio-builder .navbar{
     top: 0px;
   }
-  .react-dev-portfolio .navbar.navhide{
+  .react-dev-portfolio-builder .navbar.navhide{
     top: -120px;
   }
-  .react-dev-portfolio .navbar.nobackground{
+  .react-dev-portfolio-builder .navbar.nobackground{
     background-color: transparent !important;
     background-image: none;
   }
-  .react-dev-portfolio .nav-seperator {
+  .react-dev-portfolio-builder .nav-seperator {
     margin-top: 5px;
     height: 30px;
     width: 1px;
@@ -37,7 +37,7 @@
     background-color: rgba(255, 255, 255, 0.5);
   }
 }
-.react-dev-portfolio .to-top {
+.react-dev-portfolio-builder .to-top {
   position: fixed;
   z-index: 1;
   padding: 5px 8px;
@@ -46,24 +46,24 @@
   opacity: 0;
   transition: opacity 0.5s ease-out;
 }
-.react-dev-portfolio .to-top.shown{
+.react-dev-portfolio-builder .to-top.shown{
   opacity: 1;
 }
 
-.react-dev-portfolio .page-header {
+.react-dev-portfolio-builder .page-header {
   padding-top: 150px;
   background-repeat: no-repeat;
   background-size: cover !important;
   background-position: center !important;
 }
-.react-dev-portfolio .svg-border-rounded {
+.react-dev-portfolio-builder .svg-border-rounded {
   padding-top: 100px;
 }
 
-.react-dev-portfolio .group {
+.react-dev-portfolio-builder .group {
   padding-top: 100px;
 }
-.react-dev-portfolio .mark {
+.react-dev-portfolio-builder .mark {
   margin-top: -160px;
   height: 0px;
   width: 0px;
@@ -72,10 +72,10 @@
   z-index: -1;
 }
 
-.react-dev-portfolio footer{
+.react-dev-portfolio-builder footer{
   padding: 40px;
 }
-.react-dev-portfolio .media-bubble{
+.react-dev-portfolio-builder .media-bubble{
   height: 4rem;
   width: 4rem;
   line-height: 4rem;
@@ -85,48 +85,48 @@
   background-color: #1d809f;
   transition: background-color .20s ease-in-out;
 }
-.react-dev-portfolio .media-bubble .svg{
+.react-dev-portfolio-builder .media-bubble .svg{
   vertical-align: middle;
 }
-.react-dev-portfolio .footer-contact-info{
+.react-dev-portfolio-builder .footer-contact-info{
       font-size: 18px;
 }
 
-.react-dev-portfolio .profile-intro{
+.react-dev-portfolio-builder .profile-intro{
   margin-top: 30px;
   letter-spacing: 15px;
 }
-.react-dev-portfolio .profile-intro h1{
+.react-dev-portfolio-builder .profile-intro h1{
   font-size: 2.5rem;
   font-weight: 200;
   text-transform: uppercase;
 }
-.react-dev-portfolio .profile-intro .profile-detail{
+.react-dev-portfolio-builder .profile-intro .profile-detail{
   text-transform: uppercase;
 }
-.react-dev-portfolio .profile-intro .name{
+.react-dev-portfolio-builder .profile-intro .name{
   margin-bottom: 30px;
 }
-.react-dev-portfolio .profile-intro .name .name-mid{
+.react-dev-portfolio-builder .profile-intro .name .name-mid{
   display: none;
 }
-.react-dev-portfolio .profile-intro .name .name-3 {
+.react-dev-portfolio-builder .profile-intro .name .name-3 {
   letter-spacing: 0px;
 }
-.react-dev-portfolio .profile-intro .small {
+.react-dev-portfolio-builder .profile-intro .small {
   letter-spacing: 8px;
   text-transform: none;
   margin-top: 20px;
 }
 @media (min-width: 992px){
-  .react-dev-portfolio .profile-intro .name h1{
+  .react-dev-portfolio-builder .profile-intro .name h1{
     font-size: 3.5rem;
     display: inline-block;
   }
-  .react-dev-portfolio .profile-intro .name .name-1{
+  .react-dev-portfolio-builder .profile-intro .name .name-1{
     margin-left: 55px;
   }
-  .react-dev-portfolio .profile-intro .name .name-mid{
+  .react-dev-portfolio-builder .profile-intro .name .name-mid{
     display: inline-block;
     margin: 0 30px 0 20px;
     width: 20px;
@@ -135,20 +135,20 @@
 
 
 
-.react-dev-portfolio .section-header-desc{
+.react-dev-portfolio-builder .section-header-desc{
   color: #777;
 }
 
-.react-dev-portfolio .section-header{
+.react-dev-portfolio-builder .section-header{
   margin-bottom: 70px;
 }
-.react-dev-portfolio .section-header-desc{
+.react-dev-portfolio-builder .section-header-desc{
   font-size: 18px;
   margin-top: 30px;
 }
 
-.react-dev-portfolio .hvr-grow,
-.react-dev-portfolio .hvr-grow-shadow {
+.react-dev-portfolio-builder .hvr-grow,
+.react-dev-portfolio-builder .hvr-grow-shadow {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -159,31 +159,31 @@
   -webkit-transition-property: box-shadow, transform;
   transition-property: box-shadow, transform;
 }
-.react-dev-portfolio .hvr-grow:hover, .react-dev-portfolio .hvr-grow:focus, .react-dev-portfolio .hvr-grow:active {
+.react-dev-portfolio-builder .hvr-grow:hover, .react-dev-portfolio-builder .hvr-grow:focus, .react-dev-portfolio-builder .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-.react-dev-portfolio .hvr-grow-shadow:hover, .react-dev-portfolio .hvr-grow-shadow:focus, .react-dev-portfolio .hvr-grow-shadow:active {
+.react-dev-portfolio-builder .hvr-grow-shadow:hover, .react-dev-portfolio-builder .hvr-grow-shadow:focus, .react-dev-portfolio-builder .hvr-grow-shadow:active {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-.react-dev-portfolio .LI-badge-container{
+.react-dev-portfolio-builder .LI-badge-container{
   text-align: left !important;
 }
 
-.react-dev-portfolio .oneline{
+.react-dev-portfolio-builder .oneline{
   overflow: hidden;
   white-space: nowrap;
   word-wrap: break-word;
   text-overflow: ellipsis;
 }
 
-.react-dev-portfolio .project-tile h5 {
+.react-dev-portfolio-builder .project-tile h5 {
   cursor: pointer;
 }
-.react-dev-portfolio .project-tile .project-item {
+.react-dev-portfolio-builder .project-tile .project-item {
   border-radius: 20px;
   width: 100%;
   height: 200px;
@@ -195,32 +195,32 @@
   background-position: center center;
   background-size: cover;
 }
-.react-dev-portfolio .project-tile .project-item img{
+.react-dev-portfolio-builder .project-tile .project-item img{
   height: 100%;
   width: 100%;
 }
-.react-dev-portfolio .project-tile .project-item span{
+.react-dev-portfolio-builder .project-tile .project-item span{
   font-size: 86px;
   font-weight: bold;
 }
 
-.react-dev-portfolio .role-tile .vertical-timeline-element-content {
+.react-dev-portfolio-builder .role-tile .vertical-timeline-element-content {
   box-shadow: 0 0.1rem 1rem 0 rgba(25, 25, 25, 0.1);
   padding: 20px 30px 0px;
 }
-.react-dev-portfolio .role-tile .timeline-item-duration{
+.react-dev-portfolio-builder .role-tile .timeline-item-duration{
   display: block;
   margin-bottom: .5rem;
   text-align: right;
 }
 @media (min-width: 992px){
-  .react-dev-portfolio .role-tile .timeline-item-duration{
+  .react-dev-portfolio-builder .role-tile .timeline-item-duration{
       float:right;
       margin-bottom: 0;
   }
 }
 
-.react-dev-portfolio .qualification-item {
+.react-dev-portfolio-builder .qualification-item {
   border-radius: 20px;
   width: 100%;
   height: 330px;
@@ -228,35 +228,35 @@
   padding: 30px 10px;
   box-shadow: 0 0.1rem 1rem 0 rgba(25, 25, 25, 0.1);
 }
-.react-dev-portfolio .qualification-item img {
+.react-dev-portfolio-builder .qualification-item img {
   max-height: 100px;
   width: inherit;
 }
 
-.react-dev-portfolio .skills-large {
+.react-dev-portfolio-builder .skills-large {
   width: 100%;
 }
-.react-dev-portfolio .skills-large h6 {
+.react-dev-portfolio-builder .skills-large h6 {
   font-size: 1.6rem;
 }
-.react-dev-portfolio .skills-large .skill-group{ 
+.react-dev-portfolio-builder .skills-large .skill-group{ 
   margin-bottom: 4rem !important;
   width: 100%;
 }
-.react-dev-portfolio .skill .skill-label {
+.react-dev-portfolio-builder .skill .skill-label {
   width: 120px;
   display: inline-block;
   vertical-align: middle;
 }
 
-.react-dev-portfolio .skill .perc-bar {
+.react-dev-portfolio-builder .skill .perc-bar {
   display: inline-block;
   width: calc(100% - 140px);
   height: 18px;
   position: relative;
   vertical-align: middle;
 }
-.react-dev-portfolio .skill .perc-bar .perc-bar-progress{
+.react-dev-portfolio-builder .skill .perc-bar .perc-bar-progress{
   display: inline-block;
   max-width: 100%;
   height: 100%;
@@ -266,21 +266,21 @@
   color: white;
   padding-left: 5px;
 }
-.react-dev-portfolio .skill .perc-bar span{
+.react-dev-portfolio-builder .skill .perc-bar span{
   vertical-align: top;
 }
-.react-dev-portfolio .skill .selectable:hover {
+.react-dev-portfolio-builder .skill .selectable:hover {
   cursor: pointer;
   text-decoration: underline;
   opacity: 0.7;
 }
 @media (max-width: 1000px){
-  .react-dev-portfolio .skill-level{
+  .react-dev-portfolio-builder .skill-level{
       display: none !important;
   }
 }
 
-.react-dev-portfolio  button.pill {
+.react-dev-portfolio-builder  button.pill {
   background-color: transparent;
   border: none;
   color: black;
@@ -294,19 +294,19 @@
   border: 1px #eee solid;
 }
 
-.react-dev-portfolio .carousel-inner img {
+.react-dev-portfolio-builder .carousel-inner img {
   max-height: 500px;
   max-width: 100%;
   margin: 0 auto;
 }
-.react-dev-portfolio .carousel-control-prev,
-.react-dev-portfolio .carousel-control-next {
+.react-dev-portfolio-builder .carousel-control-prev,
+.react-dev-portfolio-builder .carousel-control-next {
   width: 5%;
 }
-.react-dev-portfolio .images {
+.react-dev-portfolio-builder .images {
   text-align: center;
 }
-.react-dev-portfolio .qualification-modal img {
+.react-dev-portfolio-builder .qualification-modal img {
   max-height: 200px;
   width: inherit;
 }

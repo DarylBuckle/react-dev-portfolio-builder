@@ -81,8 +81,8 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
       }
 
       let content
-      switch (s.systemuse) {
-        case 1: // My projects grid
+      switch (s.systemUse) {
+        case 'projects': // My projects grid
           content = (
             <div className='row justify-content-center'>
               {user.projects &&
@@ -100,7 +100,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
             </div>
           )
           break
-        case 2: // Experience
+        case 'experience': // Experience
           content = (
             <VerticalTimeline layout='1-column'>
               {user.roles &&
@@ -138,7 +138,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
             </VerticalTimeline>
           )
           break
-        case 3: // Qualifications
+        case 'qualifications': // Qualifications
           content = (
             <div className='row justify-content-center'>
               {user.qualifications &&
@@ -156,7 +156,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
             </div>
           )
           break
-        case 4: // Skills
+        case 'skills': // Skills
           content = (
             <div className='row justify-content-center'>
               {user.skills && (
@@ -212,33 +212,33 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
   }
 
   return (
-    <div className='react-dev-portfolio main'>
+    <div className='react-dev-portfolio-builder main'>
       <style>
-        {`.react-dev-portfolio .project-tile h5:hover,
-          .react-dev-portfolio .role-tile span,
-          .react-dev-portfolio .role-tile .project-more-btn:hover,
-          .react-dev-portfolio .skill .selectable:hover,
-          .react-dev-portfolio .skill-group h6,
-          .react-dev-portfolio .text-colour,
-          .react-dev-portfolio .images,
-          .react-dev-portfolio .images span {
+        {`.react-dev-portfolio-builder .project-tile h5:hover,
+          .react-dev-portfolio-builder .role-tile span,
+          .react-dev-portfolio-builder .role-tile .project-more-btn:hover,
+          .react-dev-portfolio-builder .skill .selectable:hover,
+          .react-dev-portfolio-builder .skill-group h6,
+          .react-dev-portfolio-builder .text-colour,
+          .react-dev-portfolio-builder .images,
+          .react-dev-portfolio-builder .images span {
             color: ${page.textColour};
         }
-        .react-dev-portfolio a {
+        .react-dev-portfolio-builder a {
           color: ${page.textColour};
           text-decoration: none;
           background-color: rgba(0,0,0,0);
         }
-        .react-dev-portfolio a:hover, .react-dev-portfolio a:visited, .react-dev-portfolio a:focus {
+        .react-dev-portfolio-builder a:hover, .react-dev-portfolio-builder a:visited, .react-dev-portfolio-builder a:focus {
           color: ${page.textColour};
         }
-        .react-dev-portfolio footer a, .react-dev-portfolio footer a:visited {
+        .react-dev-portfolio-builder footer a, .react-dev-portfolio-builder footer a:visited {
           color: ${idealTextColor(page.bgColour)};
           text-decoration: underline;
         }
-        .react-dev-portfolio .media-bubble,
-        .react-dev-portfolio button.pill,
-        .react-dev-portfolio .carousel-indicators li {
+        .react-dev-portfolio-builder .media-bubble,
+        .react-dev-portfolio-builder button.pill,
+        .react-dev-portfolio-builder .carousel-indicators li {
           background-color: ${page.textColour};
           color: ${idealTextColor(page.textColour)} !important;
         }
@@ -295,7 +295,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
       )}
       {!projectClick && (
         <Modal
-          className='react-dev-portfolio'
+          className='react-dev-portfolio-builder'
           show={projectModal != null}
           onHide={() => {
             setProjectModal(undefined)
@@ -329,7 +329,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
       )}
       {!qualificationClick && (
         <Modal
-          className='react-dev-portfolio'
+          className='react-dev-portfolio-builder'
           show={qualificationModal != null}
           onHide={() => {
             setQualificationModal(undefined)

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { PortfolioPage } from 'react-dev-portfolio'
-import 'react-dev-portfolio/dist/index.css'
+import { PortfolioPage } from 'react-dev-portfolio-builder'
+import 'react-dev-portfolio-builder/dist/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,7 +20,7 @@ const App = () => {
             identifier: 'Projects',
             title: 'Projects',
             subTitle: 'These are my own public and private projects.\r\n\r\nSelect a Project for more information.',
-            systemuse: 1,
+            systemUse: 'projects',
             bgColour: '#2c3e50',
             textColour: 'white',
           },
@@ -29,7 +29,7 @@ const App = () => {
             title: 'Experience',
             subTitle: 'My professional experience.',
             bgColour: '#f6f6f6',
-            systemuse: 2
+            systemUse: 'experience'
           },
           {
             identifier: 'Qualifications',
@@ -37,14 +37,14 @@ const App = () => {
             subTitle: 'My academic qualifications.',
             bgColour: '#2c3e50',
             textColour: 'white',
-            systemuse: 3
+            systemUse: 'qualifications'
           },
           {
             identifier: 'Skills',
             title: 'Skills',
             subTitle: 'My key skills and technologies.\r\n\r\nClick on a technology to show projects that use it.',
             bgColour: '#f6f6f6',
-            systemuse: 4
+            systemUse: 'skills'
           },
           {
             identifier: 'About',
@@ -55,8 +55,8 @@ const App = () => {
               <div>
                 <p>Hi, I'm Gary. As you might of guessed, I am not real.</p>
                 <p>If I was real, I'd probably write a bit about my experiences as a Developer and about how I love Football, but alas, I am not.</p>
-                <p>This page serves as a way of showing an example of what react-dev-portfolio looks like and what it can do. It's extremely easy to customise!</p>
-                <p>For more information please visit the Github repository at <a href='https://github.com/DarylBuckle/react-dev-portfolio'>https://github.com/DarylBuckle/react-dev-portfolio</a>.</p>
+                <p>This page serves as a way of showing an example of what react-dev-portfolio-builder looks like and what it can do. It's extremely easy to customise!</p>
+                <p>For more information please visit the Github repository at <a href='https://github.com/DarylBuckle/react-dev-portfolio-builder'>https://github.com/DarylBuckle/react-dev-portfolio-builder</a>.</p>
               </div>
             )
           },
@@ -76,7 +76,7 @@ const App = () => {
         externalLinks: [
           {
             title: 'Git',
-            url: 'https://github.com/DarylBuckle/react-dev-portfolio'
+            url: 'https://github.com/DarylBuckle/react-dev-portfolio-builder'
           },
         ],
         footerEnd: (
@@ -112,7 +112,7 @@ const App = () => {
               { name: 'GitHub Pages', group: 'Hosting' }
             ],
             info: '<p>This is my porfolio page. You are looking at it right now.</p>' +
-            '<p>The page was created from <a href=\'https://www.github.com/DarylBuckle/react-dev-portfolio\'>react-dev-portfolio</a>.</p>'
+            '<p>The page was created from <a href=\'https://www.github.com/DarylBuckle/react-dev-portfolio-builder\'>react-dev-portfolio-builder</a>.</p>'
           },
           {
             name: 'angular-tour-of-heroes',

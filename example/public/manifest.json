@@ -1,6 +1,6 @@
 {
-  "short_name": "react-dev-portfolio",
-  "name": "react-dev-portfolio",
+  "short_name": "react-dev-portfolio-builder",
+  "name": "react-dev-portfolio-builder",
   "icons": [
     {
       "src": "favicon.ico",

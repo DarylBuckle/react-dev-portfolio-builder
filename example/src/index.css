@@ -17,13 +17,13 @@ code {
     monospace;
 }
 
-.my-page .react-dev-portfolio .profile-intro h1 {
+.my-page .react-dev-portfolio-builder .profile-intro h1 {
   font-weight: 500;
   font-size: 72px !important;
 }
-.my-page .react-dev-portfolio .profile-intro .name .name-mid {
+.my-page .react-dev-portfolio-builder .profile-intro .name .name-mid {
   width: 50px;
 }
-.my-page .react-dev-portfolio .profile-intro .small {
+.my-page .react-dev-portfolio-builder .profile-intro .small {
   color: white;
 }
