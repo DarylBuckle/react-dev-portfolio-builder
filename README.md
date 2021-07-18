@@ -18,6 +18,7 @@ Bootstrap is required as a peer dependency.
 
 ```bash
 npm install --save bootstrap@4.5.2
+npm install --save react-bootstrap@1.6.1
 ```
 
 ## Usage
