@@ -24,12 +24,6 @@ import './style.css'
 
 export {
   PortfolioPage,
-  Page,
-  User,
-  Project,
-  Qualification,
-  Role,
-  Skill,
   NavComponent,
   HeaderSectionComponent,
   SectionComponent,
@@ -42,3 +36,5 @@ export {
   ProjectModalComponent,
   QualificationModalComponent
 }
+
+export type { Page, User, Project, Qualification, Role, Skill }

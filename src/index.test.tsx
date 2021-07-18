@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import PortfolioPage from './PortfolioPage'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(PortfolioPage).toBeTruthy()
   })
 })
