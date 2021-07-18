@@ -14,6 +14,12 @@
 npm install --save react-dev-portfolio-builder
 ```
 
+Bootstrap is required as a peer dependency.
+
+```bash
+npm install --save bootstrap@4.5.2
+```
+
 ## Usage
 
 ```tsx
@@ -128,6 +134,8 @@ It is recommended to also import bootstrap js in your html.
 | -------- |------| ----------| ------------|
 |    page | Page  | true | A Page object. |
 |    user | User  | true | A User object. |
+|    projectClick | (project: Project) => void  | false | Callback for selecting a project. If implemented the project modal will not be shown. |
+|    qualificationClick | (qualification: Qualification) => void  | false | Callback for selecting a qualification. If implemented the qualification modal will not be shown. |
 
 
 #### Page props

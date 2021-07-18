@@ -1,6 +1,6 @@
 {
   "name": "react-dev-portfolio-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Developer portfolio made in React.",
   "author": "DarylBuckle",
   "license": "MIT",
@@ -25,7 +25,8 @@
     "publish": "npm publish"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "bootstrap": "^4.5.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -38,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
+    "bootstrap": "^4.5.2",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -67,7 +69,6 @@
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "bootstrap": "^4.5.2",
     "@types/react-vertical-timeline-component": "^3.0.1",
     "react-profile-avatar": "^1.0.0",
     "react-vertical-timeline-component": "^3.3.3"
