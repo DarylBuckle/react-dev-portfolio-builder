@@ -90,7 +90,11 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                   return (
                     <div
                       key={'project-tile-' + p.name}
-                      className='project-tile col-md-6 col-lg-4 mb-5'
+                      className={
+                        s.tileClassName
+                          ? s.tileClassName
+                          : 'project-tile col-md-6 col-lg-4 mb-5'
+                      }
                       onClick={() => onProjectClick(p)}
                     >
                       <ProjectTileComponent project={p} />
@@ -108,7 +112,11 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                   return (
                     <VerticalTimelineElement
                       key={'timelineElement-' + i}
-                      className='role-tile vertical-timeline-element--work text-left'
+                      className={
+                        s.tileClassName
+                          ? s.tileClassName
+                          : 'role-tile vertical-timeline-element--work text-left'
+                      }
                       iconStyle={
                         r.current
                           ? {
@@ -146,7 +154,11 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                   return (
                     <div
                       key={'qualification-tile-' + q.name}
-                      className='col-md-4 col-lg-3 col-sm-6 mb-3'
+                      className={
+                        s.tileClassName
+                          ? s.tileClassName
+                          : 'col-md-4 col-lg-3 col-sm-6 mb-3'
+                      }
                       onClick={() => onQualificationClick(q)}
                     >
                       <QualificationTileComponent qualification={q} />
@@ -185,21 +197,23 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
           nextBackgroundColor={nextColour}
           id={s.identifier}
         >
-          <div>
+          <div className={s.className}>
             <div className='text-center'>
-              <div className='row justify-content-center'>
-                <div className='section-header col-lg-6'>
-                  {s.title && <h2>{s.title}</h2>}
-                  {s.subTitle && (
-                    <p
-                      className='section-header-desc'
-                      style={{ color: backgroundDark ? '#ddd' : undefined }}
-                    >
-                      {displayMemo(s.subTitle)}
-                    </p>
-                  )}
+              {(s.title || s.subTitle) && (
+                <div className='row justify-content-center'>
+                  <div className='section-header col-lg-6'>
+                    {s.title && <h2>{s.title}</h2>}
+                    {s.subTitle && (
+                      <p
+                        className='section-header-desc'
+                        style={{ color: backgroundDark ? '#ddd' : undefined }}
+                      >
+                        {displayMemo(s.subTitle)}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
               {content}
             </div>
           </div>

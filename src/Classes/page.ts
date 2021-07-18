@@ -22,6 +22,8 @@ export interface Section {
   bgColour?: string
   textColour?: string
   content?: any
+  className?: string
+  tileClassName?: string
 }
 export interface Link {
   id?: number
