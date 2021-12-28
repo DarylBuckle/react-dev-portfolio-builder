@@ -19,11 +19,13 @@ export interface Section {
   linkedIdentifier?: string
   title?: string
   subTitle?: string
+  subTitleHTML?: string
   bgColour?: string
   textColour?: string
   content?: any
   className?: string
   tileClassName?: string
+  containerClassName?: string
 }
 export interface Link {
   id?: number

@@ -19,7 +19,7 @@ const App = () => {
           {
             identifier: 'Projects',
             title: 'Projects',
-            subTitle: 'These are my own public and private projects.\r\n\r\nSelect a Project for more information.',
+            subTitleHTML: '<div><p class="section-header-desc" style="color: rgb(221, 221, 221)">These are my own public and private projects.</p><p class="section-header-desc noprint" style="color: rgb(221, 221, 221)">Select a Project for more information.</p></div>',
             systemUse: 'projects',
             bgColour: '#2c3e50',
             textColour: 'white',
@@ -66,6 +66,7 @@ const App = () => {
             title: '',
             bgColour: 'white',
             textColour: 'red',
+            containerClassName: 'noprint',
             content: (
               <div>
                 This is a second part of the About section.

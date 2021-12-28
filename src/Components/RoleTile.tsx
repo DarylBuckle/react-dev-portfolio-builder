@@ -89,34 +89,36 @@ export const RoleTileComponent = ({ role, onProjectClick }: Props) => {
         />
       )}
 
-      {projectsList.length > 0 && (
-        <div className='row justify-content-center text-center mt-5 mb-5'>
-          {projectsList.map((p) => {
-            return (
-              <div
-                key={'project-tile-' + p.name}
-                className='project-tile col-md-6 col-lg-6 mb-5'
-                onClick={onProjectClick ? () => onProjectClick(p) : undefined}
-              >
-                <ProjectTileComponent project={p} />
-              </div>
-            )
-          })}
-          {role.projects && projectsList.length < role.projects.length && (
-            <div className='col-md-6 col-lg-6 mb-5'>
-              <button
-                className='project-more-btn btn btn-link mt-3 mb-2 text-secondary hvr-grow'
-                onClick={() => setProjectsToShow(projectsToShow + pageSize)}
-              >
-                <FontAwesomeIcon icon={faEllipsisH} size='4x' />
-                <div>
-                  {`+${role.projects.length - projectsToShow} more projects`}
+      <div className='role-projects'>
+        {projectsList.length > 0 && (
+          <div className='row justify-content-center text-center mt-5 mb-5'>
+            {projectsList.map((p) => {
+              return (
+                <div
+                  key={'project-tile-' + p.name}
+                  className='project-tile col-md-6 col-lg-6 mb-5'
+                  onClick={onProjectClick ? () => onProjectClick(p) : undefined}
+                >
+                  <ProjectTileComponent project={p} />
                 </div>
-              </button>
-            </div>
-          )}
-        </div>
-      )}
+              )
+            })}
+            {role.projects && projectsList.length < role.projects.length && (
+              <div className='col-md-6 col-lg-6 mb-5'>
+                <button
+                  className='project-more-btn btn btn-link mt-3 mb-2 text-secondary hvr-grow'
+                  onClick={() => setProjectsToShow(projectsToShow + pageSize)}
+                >
+                  <FontAwesomeIcon icon={faEllipsisH} size='4x' />
+                  <div>
+                    {`+${role.projects.length - projectsToShow} more projects`}
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
     </Fragment>
   )
 }

@@ -93,7 +93,7 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                       className={
                         s.tileClassName
                           ? s.tileClassName
-                          : 'project-tile col-md-6 col-lg-4 mb-5'
+                          : 'project-tile col-sm-6 col-md-4 mb-5'
                       }
                       onClick={() => onProjectClick(p)}
                     >
@@ -196,10 +196,11 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
           textColour={s.textColour}
           nextBackgroundColor={nextColour}
           id={s.identifier}
+          containerClassName={s.containerClassName}
         >
           <div className={s.className}>
             <div className='text-center'>
-              {(s.title || s.subTitle) && (
+              {(s.title || s.subTitle || s.subTitleHTML) && (
                 <div className='row justify-content-center'>
                   <div className='section-header col-lg-6'>
                     {s.title && <h2>{s.title}</h2>}
@@ -210,6 +211,11 @@ export default ({ page, user, projectClick, qualificationClick }: Props) => {
                       >
                         {displayMemo(s.subTitle)}
                       </p>
+                    )}
+                    {s.subTitleHTML && (
+                      <div
+                        dangerouslySetInnerHTML={{ __html: s.subTitleHTML }}
+                      />
                     )}
                   </div>
                 </div>

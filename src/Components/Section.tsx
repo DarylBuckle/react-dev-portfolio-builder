@@ -22,6 +22,7 @@ interface Props {
   backgroundImageUrl?: string
   user?: User
   page?: Page
+  containerClassName?: string
 }
 
 export const HeaderSectionComponent = (props: Props) => {
@@ -78,9 +79,14 @@ export const SectionComponent = (props: Props) => {
     nextClasses += ' text-white'
   }
 
+  let containerClasses = 'group'
+  if (props.containerClassName) {
+    containerClasses += ` ${props.containerClassName}`
+  }
+
   return (
     <section
-      className='group'
+      className={containerClasses}
       style={{
         backgroundColor: props.backgroundColor,
         color: props.textColour,
@@ -116,7 +122,7 @@ export const SectionComponent = (props: Props) => {
 }
 
 export const FooterComponent = (props: Props) => {
-  let footerClasses = 'footer text-center'
+  let footerClasses = 'footer text-center noprint'
   if (!props.backgroundColor) {
     footerClasses += ' bg-secondary'
   }

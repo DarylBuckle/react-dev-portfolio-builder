@@ -27,3 +27,9 @@ code {
 .my-page .react-dev-portfolio-builder .profile-intro .small {
   color: white;
 }
+
+@media print {
+  .my-page .react-dev-portfolio-builder .profile-intro .name h1 {
+    font-size: 3.6rem !important;
+  }
+}
